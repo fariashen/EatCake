@@ -7,8 +7,8 @@
 
 </head>
 <body>
-	Hello,EatCake
+	登录成功
 	<br><br>
-	<a href="login-login">登录</a>
+	
 </body>
 </html>
