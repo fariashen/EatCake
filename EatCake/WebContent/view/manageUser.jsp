@@ -8,13 +8,11 @@
 
 </head>
 <body>
-	Hello,EatCake
+	Manage User
 	<br><br>
-	<a href="<%=contextPath %>/view/login.jsp">登录</a>
+	<a href="<%=contextPath %>/view/addUser.jsp">增加</a>
 	<br><br>
-	<a href="<%=contextPath %>/view/register.jsp">注册</a>
-	<br><br>
-	<a href="<%=contextPath %>/view/manageUser.jsp">管理用户</a>
+	<a href="<%=contextPath %>/view/deleteUser.jsp">删除</a>
 	<br><br>
 </body>
 </html>

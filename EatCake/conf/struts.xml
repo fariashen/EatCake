@@ -21,7 +21,12 @@
         <action name="register" class="registerAction"
         	method="register">
         		<result name="success">/view/success.jsp</result>
-        	</action>
+        </action>
+        
+        <action name="manageUser-*" class="manageUserAction"
+        	method="{1}">
+        	<result name="success">/view/success.jsp</result>
+        </action>
     </package>
     
 </struts>

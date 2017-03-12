@@ -14,13 +14,17 @@
 		<property name="userManager" ref="userManagerImpl"></property>
 	</bean>
 
+	<bean id="manageUserAction" class="eatcake.action.ManageUserAction"
+		scope="prototype">
+		<property name="userManager" ref="userManagerImpl"></property>
+	</bean>
+	
 	<!-- Service -->
 	<bean id="userManagerImpl" class="eatcake.service.impl.UserManagerImpl" >
 		<property name="userDao" ref="userDAOImpl"></property>
 	</bean>
 	
 	<!-- Dao -->
-
 	<bean id="userDAOImpl" class="eatcake.dao.impl.UserDAOImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
