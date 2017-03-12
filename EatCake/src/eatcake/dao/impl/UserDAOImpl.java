@@ -1,7 +1,35 @@
 package eatcake.dao.impl;
 
-import eatcake.dao.UserDAO;
 
-public class UserDAOImpl implements UserDAO {
+import org.hibernate.Query;
+
+import eatcake.dao.UserDAO;
+import eatcake.model.User;
+
+public class UserDAOImpl extends BassDAOImpl implements UserDAO {
+
+	@Override
+	public User getUserByUserName(String userName) {
+		String hql = "FROM User u WHERE u.userName = ?";
+		Query query = getSession().createQuery(hql).setString(0, userName);
+		return (User) query.uniqueResult();
+	}
+
+	@Override
+	public Integer save(User user) {
+		return (Integer) getSession().save(user);
+	}
+	
+	@Override
+	public Boolean deleteUserByUserName(String userName) {
+		String hql = "DELETE User u WHERE u.userName = ?";
+		int deleteNum = getSession().createQuery(hql).setString(0, userName).executeUpdate();
+		
+		if (deleteNum == 0) {
+			return false;
+		}
+		return true;
+	}
+
 
 }

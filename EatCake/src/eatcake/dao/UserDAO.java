@@ -1,5 +1,9 @@
 package eatcake.dao;
 
-public interface UserDAO {
+import eatcake.model.User;
 
+public interface UserDAO {
+	public User getUserByUserName(String userName);
+	public Integer save(User user);
+	public Boolean deleteUserByUserName(String userName);
 }

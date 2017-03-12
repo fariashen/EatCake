@@ -13,9 +13,15 @@
         <action name="login-*" class="loginAction"
         	method="{1}">
         	
-        	<result name="success">/view/login.jsp</result>
+        	<result name="success">/view/success.jsp</result>
         	
+        	<result name="test">/index.jsp</result>
         </action>
+        
+        <action name="register" class="registerAction"
+        	method="register">
+        		<result name="success">/view/success.jsp</result>
+        	</action>
     </package>
     
 </struts>

@@ -3,8 +3,26 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
 
+	<!-- Action -->
 	<bean id="loginAction" class="eatcake.action.LoginAction"
 		scope="prototype">
+		<property name="userManager" ref="userManagerImpl"></property>
+	</bean>
+	
+	<bean id="registerAction" class="eatcake.action.RegisterAction"
+		scope="prototype">
+		<property name="userManager" ref="userManagerImpl"></property>
 	</bean>
 
+	<!-- Service -->
+	<bean id="userManagerImpl" class="eatcake.service.impl.UserManagerImpl" >
+		<property name="userDao" ref="userDAOImpl"></property>
+	</bean>
+	
+	<!-- Dao -->
+
+	<bean id="userDAOImpl" class="eatcake.dao.impl.UserDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
 </beans>
