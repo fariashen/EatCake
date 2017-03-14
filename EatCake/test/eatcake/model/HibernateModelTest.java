@@ -1,16 +1,14 @@
 package eatcake.model;
 
-import static org.junit.Assert.*;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
-import org.hibernate.service.ServiceRegistryBuilder;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class HibernateModelTest {
 
@@ -20,7 +18,8 @@ public class HibernateModelTest {
 
 	@Before
 	public void before(){
-		sessionFactory = new Configuration().configure().buildSessionFactory();
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
+		sessionFactory = (SessionFactory) ctx.getBean("sessionFactory");
 		session = sessionFactory.openSession();
 		transaction = session.beginTransaction();
 	}
@@ -36,7 +35,7 @@ public class HibernateModelTest {
 	public void test() {
 		
 		Goods goods = new Goods();
-		Order order = new Order();
+		Orders order = new Orders();
 		Order_Goods orderGoods= new Order_Goods();
 		User user = (User) session.load(User.class, 1);
 		
@@ -45,6 +44,10 @@ public class HibernateModelTest {
 		orderGoods.setNum(1);
 		orderGoods.setGoods(goods);
 		orderGoods.setOrder(order);
+		
+		session.save(order);
+		session.save(goods);
+		session.save(orderGoods);
 	}
 
 }

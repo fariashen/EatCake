@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2017-3-14 9:29:14 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 2017-3-14 14:55:33 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="eatcake.model.Order" table="ORDER">
+    <class name="eatcake.model.Orders" table="ORDERS">
         <id name="orderId" type="java.lang.Integer">
             <column name="ORDER_ID" />
             <generator class="native" />
@@ -17,10 +17,8 @@
         <property name="orderStatus" type="java.lang.Integer">
             <column name="ORDER_STATUS" />
         </property>
-        
-        <many-to-one name="creator" class="eatcake.model.User" fetch="join">
-            <column name="USERNAME" />
+        <many-to-one name="creator" class="eatcake.model.User" fetch="join" >
+            <column name="ID" />
         </many-to-one>
-        
     </class>
 </hibernate-mapping>

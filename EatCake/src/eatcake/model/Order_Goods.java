@@ -5,8 +5,9 @@ public class Order_Goods {
 	private Integer id;
 	private Integer num;
 	
-	private Order order;
+	private Orders order;
 	private Goods goods;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -19,10 +20,10 @@ public class Order_Goods {
 	public void setNum(Integer num) {
 		this.num = num;
 	}
-	public Order getOrder() {
+	public Orders getOrder() {
 		return order;
 	}
-	public void setOrder(Order order) {
+	public void setOrder(Orders order) {
 		this.order = order;
 	}
 	public Goods getGoods() {

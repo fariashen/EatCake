@@ -12,7 +12,7 @@
             <column name="NUM" />
         </property>
         
-        <many-to-one name="order" class="eatcake.model.Order" fetch="join">
+        <many-to-one name="order" class="eatcake.model.Orders" fetch="join">
             <column name="ORDER_ID" />
         </many-to-one>
         <many-to-one name="goods" class="eatcake.model.Goods" fetch="join">

@@ -1,10 +1,10 @@
 package eatcake.dao;
 
-import eatcake.model.Order;
+import eatcake.model.Orders;
 
 public interface OrderDAO {
 
-	public Boolean saveOrUpdateOrder(Order order);
-	public Order getOrdersByUserName(String userName);
-	public Order getOrderByOrderId(Integer orderId);
+	public Boolean saveOrUpdateOrder(Orders order);
+	public Orders getOrdersByUserName(String userName);
+	public Orders getOrderByOrderId(Integer orderId);
 }

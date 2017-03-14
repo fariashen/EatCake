@@ -1,7 +1,7 @@
 package eatcake.model;
 
 
-public class Order {
+public class Orders {
 
 	private Integer orderId;
 	private String address;

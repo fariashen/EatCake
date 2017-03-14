@@ -16,7 +16,7 @@
             <column name="GOODS_ID" />
         </many-to-one>
         
-        <many-to-one name="creator" class="eatcake.model.User" fetch="join">
+        <many-to-one name="creator" class="eatcake.model.User" fetch="join" >
             <column name="USERNAME" />
         </many-to-one>
     </class>
