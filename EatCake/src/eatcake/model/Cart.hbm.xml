@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-3-14 9:29:14 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="eatcake.model.Cart" table="CART">
+        <id name="cartId" type="java.lang.Integer">
+            <column name="CART_ID" />
+            <generator class="native" />
+        </id>
+        <property name="num" type="java.lang.Integer">
+            <column name="NUM" />
+        </property>
+        
+        <many-to-one name="goods" class="eatcake.model.Goods" fetch="join">
+            <column name="GOODS_ID" />
+        </many-to-one>
+        
+        <many-to-one name="creator" class="eatcake.model.User" fetch="join">
+            <column name="USERNAME" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

@@ -29,4 +29,9 @@
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	
+	
+	<!-- Test 
+	<bean id="hibernateModelTest" class="eatcake.model.HibernateModelTest">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>-->
 </beans>
