@@ -2,10 +2,12 @@ package eatcake.dao.impl;
 
 
 import org.hibernate.Query;
+import org.springframework.stereotype.Repository;
 
 import eatcake.dao.UserDAO;
 import eatcake.model.User;
 
+@Repository
 public class UserDAOImpl extends BassDAOImpl implements UserDAO {
 
 	@Override

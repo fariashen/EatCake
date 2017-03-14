@@ -1,12 +1,14 @@
 package eatcake.dao.impl;
 
 import org.hibernate.Query;
+import org.springframework.stereotype.Repository;
 
 import com.sun.org.apache.bcel.internal.generic.GETSTATIC;
 
 import eatcake.dao.CartDAO;
 import eatcake.model.Cart;
 
+@Repository
 public class CartDAOImpl extends BassDAOImpl implements CartDAO {
 
 	@Override

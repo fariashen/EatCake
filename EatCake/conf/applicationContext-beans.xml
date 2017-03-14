@@ -24,11 +24,11 @@
 		<property name="userDao" ref="userDAOImpl"></property>
 	</bean>
 	
-	<!-- Dao -->
+	<!-- Dao 
 	<bean id="userDAOImpl" class="eatcake.dao.impl.UserDAOImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-	
+	-->
 	
 	<!-- Test 
 	<bean id="hibernateModelTest" class="eatcake.model.HibernateModelTest">

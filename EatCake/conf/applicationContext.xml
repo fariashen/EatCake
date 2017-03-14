@@ -9,6 +9,8 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
+	<context:component-scan base-package="eatcake.*"></context:component-scan>
+	
 	<!-- 导入资源文件 -->
 	<context:property-placeholder location="classpath:db.properties"/>
 	
@@ -32,7 +34,8 @@
 
 	<!-- 配置 Spring 声明式事务 -->
 	<!-- 1、 配置 hibernate 的事务管理器 -->
-	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+	<bean id="transactionManager" 
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	
@@ -46,10 +49,15 @@
 	
 	<!-- 3、 配置事务切入点，再把事务属性和事务切入点关联起来 -->
 	<aop:config>
-		<aop:pointcut expression="execution(* eatcake.service.*.*(..))" id="txPointCut"/>
+		<aop:pointcut expression="execution(* eatcake.service.*.*(..))" 
+			id="txPointCut"/>
+		<aop:pointcut expression="execution(* eatcake.dao.*.*(..))" 
+			id="DaoPointCut"/>
+			
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPointCut"/>
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="DaoPointCut"/>
 	</aop:config>
 	
-	
+	<tx:annotation-driven transaction-manager="transactionManager"/>
 	
 </beans>

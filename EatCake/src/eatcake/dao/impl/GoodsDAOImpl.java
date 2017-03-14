@@ -1,10 +1,12 @@
 package eatcake.dao.impl;
 
 import org.hibernate.Query;
+import org.springframework.stereotype.Repository;
 
 import eatcake.dao.GoodsDAO;
 import eatcake.model.Goods;
 
+@Repository
 public class GoodsDAOImpl extends BassDAOImpl implements GoodsDAO {
 
 	@Override
