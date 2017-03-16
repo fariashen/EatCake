@@ -1,5 +1,7 @@
 package eatcake.dao.impl;
 
+import java.util.List;
+
 import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
@@ -43,12 +45,12 @@ public class GoodsDAOImpl extends BassDAOImpl implements GoodsDAO {
 	}
 
 	@Override
-	public Goods getGoodsByCategory(String goodsType) {
+	public List<Goods> getGoodsByCategory(String goodsType) {
 
 		String hql = "FROM Goods goods WHERE goods.goodsType = ?";
 		Query query = getSession().createQuery(hql).setString(0, goodsType);
 		
-		return (Goods) query.uniqueResult();
+		return query.list();
 	}
 
 }

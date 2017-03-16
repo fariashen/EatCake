@@ -1,38 +1,64 @@
 package eatcake.service.impl;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import eatcake.dao.GoodsDAO;
 import eatcake.model.Goods;
 import eatcake.service.GoodsManager;
 
 public class GoodsManagerImpl implements GoodsManager {
 
+	@Autowired
+	private GoodsDAO goodsDao;
+	
 	@Override
 	public Boolean addGoodsRecord(Goods goods) {
-		// TODO Auto-generated method stub
-		return null;
+
+		try {
+			Goods existGoods = goodsDao.getGoodsByGoodsId(goods.getGoodsId());
+			if(existGoods == null){
+				goodsDao.saveOrUpdateGoodsInfo(goods);
+			}
+		} catch (Exception e) {
+			return false;
+		}
+		
+		return true;
 	}
 
 	@Override
 	public Boolean deleteGoodsRecord(Integer goodsId) {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			goodsDao.deleteGoods(goodsDao.getGoodsByGoodsId(goodsId));
+		} catch (Exception e) {
+			return false;
+		}
+		return true;
 	}
 
 	@Override
 	public Boolean changeGoodsInfo(Goods goods) {
-		// TODO Auto-generated method stub
-		return null;
+
+		try {
+			goodsDao.saveOrUpdateGoodsInfo(goods);
+		} catch (Exception e) {
+			return false;
+		}
+		return true;
 	}
 
 	@Override
 	public Goods searchGoods(Integer goodsId) {
-		// TODO Auto-generated method stub
-		return null;
+
+		return goodsDao.getGoodsByGoodsId(goodsId);
 	}
 
 	@Override
-	public Goods searchGoods(String GoodsType) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Goods> searchGoods(String goodsType) {
+
+		return goodsDao.getGoodsByCategory(goodsType);
 	}
 
 }
