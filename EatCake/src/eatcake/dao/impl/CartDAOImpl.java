@@ -1,9 +1,9 @@
 package eatcake.dao.impl;
 
+import java.util.List;
+
 import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
-
-import com.sun.org.apache.bcel.internal.generic.GETSTATIC;
 
 import eatcake.dao.CartDAO;
 import eatcake.model.Cart;
@@ -12,14 +12,14 @@ import eatcake.model.Cart;
 public class CartDAOImpl extends BassDAOImpl implements CartDAO {
 
 	@Override
-	public Cart getCartByUserName(String userName) {
+	public List<Cart> getCartByUserName(String userName) {
 		
 		String hql="FROM Cart cart "
 				+ "WHERE cart.creator.userName = ?";
 		Query query = getSession().createQuery(hql)
 				.setString(0, userName);
 		
-		return (Cart) query.uniqueResult();
+		return  query.list();
 	}
 
 	@Override
