@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import eatcake.dao.CartDAO;
 import eatcake.dao.GoodsDAO;
@@ -12,6 +13,7 @@ import eatcake.model.Cart;
 import eatcake.model.Goods;
 import eatcake.service.CartManager;
 
+@Service
 public class CartManagerImpl implements CartManager {
 
 	@Autowired

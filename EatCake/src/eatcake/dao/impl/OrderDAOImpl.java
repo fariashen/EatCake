@@ -56,5 +56,16 @@ public class OrderDAOImpl extends BassDAOImpl implements OrderDAO {
 		return query.list();
 	}
 
+	@Override
+	public Boolean deleteOrder(Orders order) {
+
+		try {
+			getSession().delete(order);
+		} catch (Exception e) {
+			return false;
+		}
+		return true;
+	}
+
 	
 }

@@ -10,6 +10,8 @@
 
     <package name="default" namespace="/" extends="struts-default">
 
+		<default-interceptor-ref name="paramsPrepareParamsStack"></default-interceptor-ref>
+		
         <action name="login-*" class="loginAction"
         	method="{1}">
         	

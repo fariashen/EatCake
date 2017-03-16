@@ -3,11 +3,13 @@ package eatcake.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import eatcake.dao.GoodsDAO;
 import eatcake.model.Goods;
 import eatcake.service.GoodsManager;
 
+@Service
 public class GoodsManagerImpl implements GoodsManager {
 
 	@Autowired

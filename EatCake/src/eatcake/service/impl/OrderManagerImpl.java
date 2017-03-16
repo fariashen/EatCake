@@ -3,6 +3,7 @@ package eatcake.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import eatcake.dao.GoodsDAO;
 import eatcake.dao.OrderDAO;
@@ -11,6 +12,7 @@ import eatcake.model.Order_Goods;
 import eatcake.model.Orders;
 import eatcake.service.OrderManager;
 
+@Service
 public class OrderManagerImpl implements OrderManager {
 
 	@Autowired
@@ -66,6 +68,25 @@ public class OrderManagerImpl implements OrderManager {
 			return false;
 		}
 		return true;
+	}
+
+	@Override
+	public Boolean updateOrderInfo(Orders order) {
+
+		if(orderDao.saveOrUpdateOrder(order)){
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public Boolean deleteOrder(Integer orderId) {
+
+		Orders order = orderDao.getOrderByOrderId(orderId);
+		if(orderDao.deleteOrder(order)){
+			return true;
+		}
+		return false;
 	}
 
 }

@@ -31,4 +31,18 @@ public interface OrderManager {
 	 * @return
 	 */
 	public Boolean checkOut(Integer orderId);
+	
+	/**
+	 * 更新订单信息
+	 * @param order
+	 * @return
+	 */
+	public Boolean updateOrderInfo(Orders order);
+	
+	/**
+	 * 删除订单记录
+	 * @param order
+	 * @return
+	 */
+	public Boolean deleteOrder(Integer orderId);
 }

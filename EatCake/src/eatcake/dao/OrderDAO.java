@@ -15,6 +15,13 @@ public interface OrderDAO {
 	public Boolean saveOrUpdateOrder(Orders order);
 	
 	/**
+	 * 删除订单记录
+	 * @param order
+	 * @return
+	 */
+	public Boolean deleteOrder(Orders order);
+	
+	/**
 	 * 根据用户名获取订单记录
 	 * @param userName
 	 * @return
