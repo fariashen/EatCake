@@ -16,6 +16,7 @@
 		<s:textfield name="goodsImgPath" label="goodsImgPath"></s:textfield>
 		<s:textfield name="goodsPrice" label="goodsPrice"></s:textfield>
 		<s:textfield name="goodsType" label="goodsType"></s:textfield>
+		<s:submit></s:submit>
 	</s:form>
 </body>
 </html>

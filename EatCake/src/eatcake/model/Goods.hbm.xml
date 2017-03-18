@@ -6,7 +6,6 @@
     <class name="eatcake.model.Goods" table="GOODS">
         <id name="goodsId" type="java.lang.Integer">
             <column name="GOODS_ID" />
-            <generator class="native" />
         </id>
         <property name="goodsName" type="java.lang.String">
             <column name="GOODS_NAME" />

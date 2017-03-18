@@ -87,7 +87,9 @@ public class ManageGoodsAction extends ActionSupport implements
 	}
 	
 	@Override
-	public void prepare() throws Exception {	}
+	public void prepare() throws Exception {	
+		model = new Goods();
+	}
 
 	@Override
 	public Goods getModel() {
