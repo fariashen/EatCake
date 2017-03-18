@@ -23,7 +23,13 @@ public class ManageGoodsAction extends ActionSupport implements
 	
 	private Goods model;
 	private GoodsManager goodsManager;
+	private Integer goodsId;
 	
+	
+	public void setGoodsId(Integer goodsId) {
+		this.goodsId = goodsId;
+	}
+
 	@Autowired
 	public void setGoodsManager(GoodsManager goodsManager) {
 		this.goodsManager = goodsManager;
@@ -62,7 +68,7 @@ public class ManageGoodsAction extends ActionSupport implements
 	 */
 	public String delete(){
 		
-		if(goodsManager.deleteGoodsRecord(model.getGoodsId())){
+		if(goodsManager.deleteGoodsRecord(goodsId)){
 			return SUCCESS;
 		}
 		return ERROR;

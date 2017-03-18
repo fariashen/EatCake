@@ -44,8 +44,8 @@
 						<td>${goodsImgPath }</td>
 						<td>${goodsPrice }</td>
 						<td>${goodsType }</td>
-						<td><a href="goodsManage-delete?goodsId=${goodsId }">Delete</a></td>
-						<td><a href="goodsManage-update?">Update</a></td>
+						<td><a href="manageGoods-delete?goodsId=${goodsId }">Delete</a></td>
+						<td><a href="manageGoods-update?">Update</a></td>
 					</tr>
 				</s:iterator>
 			</tbody>
