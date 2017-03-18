@@ -53,4 +53,12 @@ public class GoodsDAOImpl extends BassDAOImpl implements GoodsDAO {
 		return query.list();
 	}
 
+	@Override
+	public List<Goods> getAllGoods() {
+
+		String hql = "FROM Goods goods";
+		Query query = getSession().createQuery(hql);
+		return query.list();
+	}
+
 }

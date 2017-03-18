@@ -1,6 +1,7 @@
 package eatcake.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -61,6 +62,18 @@ public class GoodsManagerImpl implements GoodsManager {
 	public List<Goods> searchGoods(String goodsType) {
 
 		return goodsDao.getGoodsByCategory(goodsType);
+	}
+
+	@Override
+	public boolean getAllGoodsInfo(Map<String, Object> requset) {
+
+		try {
+			requset.put("goodsList", goodsDao.getAllGoods());
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
 	}
 
 }

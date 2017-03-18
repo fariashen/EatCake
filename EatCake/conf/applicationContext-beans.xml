@@ -18,6 +18,10 @@
 		scope="prototype">
 		<property name="userManager" ref="userManagerImpl"></property>
 	</bean>
+	 
+	<bean id="manageGoodsAction" class="eatcake.action.ManageGoodsAction" 
+		scope="prototype">
+	</bean>
 	
 	<!-- Service -->
 	<bean id="userManagerImpl" class="eatcake.service.impl.UserManagerImpl" >

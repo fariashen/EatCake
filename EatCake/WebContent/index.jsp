@@ -16,5 +16,7 @@
 	<br><br>
 	<a href="<%=contextPath %>/view/manageUser.jsp">管理用户</a>
 	<br><br>
+	<a href="manageGoods-list">管理商品</a>
+	<br><br>
 </body>
 </html>

@@ -33,4 +33,10 @@ public interface GoodsDAO {
 	 * @return
 	 */
 	public List<Goods> getGoodsByCategory(String goodsType);
+
+	/**
+	 * 获取所有的商品记录信息
+	 * @return
+	 */
+	public List<Goods> getAllGoods();
 }

@@ -12,6 +12,7 @@
 
 		<default-interceptor-ref name="paramsPrepareParamsStack"></default-interceptor-ref>
 		
+		<!-- 登录操作 -->
         <action name="login-*" class="loginAction"
         	method="{1}">
         	
@@ -20,15 +21,25 @@
         	<result name="test">/index.jsp</result>
         </action>
         
+        <!-- 注册操作 -->
         <action name="register" class="registerAction"
         	method="register">
         		<result name="success">/view/success.jsp</result>
         </action>
         
+        <!-- 管理用户操作 -->
         <action name="manageUser-*" class="manageUserAction"
         	method="{1}">
         	<result name="success">/view/success.jsp</result>
         </action>
+        
+        <!-- 管理商品操作 -->
+        <action name="manageGoods-*" class="manageGoodsAction"
+        	method="{1}">
+        	<result name="success">/view/success.jsp</result>
+        	<result name="list">/view/manageGoods.jsp</result>
+        </action>
+        
     </package>
     
 </struts>

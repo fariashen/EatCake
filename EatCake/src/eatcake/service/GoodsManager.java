@@ -1,6 +1,7 @@
 package eatcake.service;
 
 import java.util.List;
+import java.util.Map;
 
 import eatcake.model.Goods;
 
@@ -40,5 +41,12 @@ public interface GoodsManager {
 	 * @return
 	 */
 	public List<Goods> searchGoods(String goodsType);
+
+	/**
+	 * 查询所有商品记录，并放到request中
+	 * @param requset
+	 * @return
+	 */
+	public boolean getAllGoodsInfo(Map<String, Object> requset);
 	
 }
