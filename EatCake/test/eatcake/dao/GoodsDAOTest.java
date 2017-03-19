@@ -25,9 +25,10 @@ public class GoodsDAOTest extends AbstractJUnit4SpringContextTests{
 	@Test
 	public void testGetGoodsByGoodsId(){
 
+		/*
 		Goods goods = new Goods();
 		
-//		goods.setGoodsId(111);
+		goods.setGoodsId(111);
 		goods.setGoodsName("testAdd");
 		goods.setGoodsBrief("testAdd");
 		goods.setGoodsDetail("testAdd");
@@ -36,10 +37,15 @@ public class GoodsDAOTest extends AbstractJUnit4SpringContextTests{
 		goods.setGoodsType("testAdd");	
 		
 		goodsDao.getGoodsByGoodsId(goods.getGoodsId());
+		*/
+		Goods goods = goodsDao.getGoodsByGoodsId(111);
+		System.out.println(goods.getGoodsName());
+		
 	}
 	
 	@Test
 	public void testSaveOrUpdateGoodsInfo() {
+		/*
 		Goods goods = new Goods();
 		
 		goods.setGoodsId(111);
@@ -49,6 +55,13 @@ public class GoodsDAOTest extends AbstractJUnit4SpringContextTests{
 		goods.setGoodsImgPath("testAdd2");
 		goods.setGoodsPrice(21.1);
 		goods.setGoodsType("testAdd2");	
+		
+		goodsDao.saveOrUpdateGoodsInfo(goods);
+		*/
+		
+		Goods goods = goodsDao.getGoodsByGoodsId(111);
+		goods.setGoodsName("testUpdate");
+		goods.setGoodsDetail("testUpdate");
 		
 		goodsDao.saveOrUpdateGoodsInfo(goods);
 	}

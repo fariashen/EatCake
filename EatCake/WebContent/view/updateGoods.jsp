@@ -8,6 +8,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
+	<s:debug></s:debug>
+	<s:form action="manageGoods-update" method="post">
+		<s:textfield name="goodsId" label="goodsId" readonly="true"></s:textfield>
+		<s:textfield name="goodsName" label="goodsName"></s:textfield>
+		<s:textfield name="goodsBrief" label="goodsBrief"></s:textfield>
+		<s:textfield name="goodsDetail" label="goodsDetail"></s:textfield>
+		<s:textfield name="goodsImgPath" label="goodsImgPath"></s:textfield>
+		<s:textfield name="goodsPrice" label="goodsPrice"></s:textfield>
+		<s:textfield name="goodsType" label="goodsType"></s:textfield>
+		<s:submit></s:submit>
+	</s:form>
 </body>
 </html>

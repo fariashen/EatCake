@@ -10,7 +10,17 @@
 
     <package name="default" namespace="/" extends="struts-default">
 
-		<default-interceptor-ref name="paramsPrepareParamsStack"></default-interceptor-ref>
+		<!-- 定义新的拦截器栈，配置prepare 拦截器栈的alwaysInvokePrepare 参数值为false -->
+		<interceptors>
+			<interceptor-stack name="eatCakeStack">
+				<interceptor-ref name="paramsPrepareParamsStack">
+					<param name="prepare.alwaysInvokePrepare">false</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		
+		<!-- 使用新的拦截器栈 -->
+		<default-interceptor-ref name="eatCakeStack"></default-interceptor-ref>
 		
 		<!-- 登录操作 -->
         <action name="login-*" class="loginAction"
@@ -38,6 +48,7 @@
         	method="{1}">
         	<result name="success">/view/success.jsp</result>
         	<result name="list">/view/manageGoods.jsp</result>
+        	<result name="update">/view/updateGoods.jsp</result>
         </action>
         
     </package>

@@ -53,6 +53,13 @@ public class Goods {
 	public void setGoodsPrice(Double goodsPrice) {
 		this.goodsPrice = goodsPrice;
 	}
+	@Override
+	public String toString() {
+		return "Goods [goodsId=" + goodsId + ", goodsName=" + goodsName
+				+ ", goodsType=" + goodsType + ", goodsImgPath=" + goodsImgPath
+				+ ", goodsBrief=" + goodsBrief + ", goodsDetail=" + goodsDetail
+				+ ", goodsPrice=" + goodsPrice + "]";
+	}
 	
 	
 	

@@ -62,6 +62,10 @@ public class ManageGoodsAction extends ActionSupport implements
 		return ERROR;
 	}
 	
+	public void prepareAdd(){
+		model = new Goods();
+	}
+	
 	/**
 	 * 删除商品记录的操作
 	 * @return
@@ -75,25 +79,43 @@ public class ManageGoodsAction extends ActionSupport implements
 	}
 	
 	/**
+	 * 跳转到更新商品信息页面
+	 * @return
+	 */
+	public String toUpdate(){
+		return "update";
+	}
+	
+	public void prepareToUpdate(){
+		if(goodsId != null){
+			model = goodsManager.searchGoods(goodsId);
+		}
+	}
+	/**
 	 * 更新商品信息的操作
 	 * @return
 	 */
 	public String update(){
 		
+		System.out.println(model.toString());
 		if(goodsManager.changeGoodsInfo(model)){
 			return SUCCESS;
 		}
 		return ERROR;
 	}
 	
-	@Override
-	public void prepare() throws Exception {	
+	public void prepareUpdate(){
 		model = new Goods();
 	}
 
 	@Override
 	public Goods getModel() {
 		return model;
+	}
+
+	@Override
+	public void prepare() throws Exception {
+		
 	}
 
 }
