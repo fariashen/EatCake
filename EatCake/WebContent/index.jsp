@@ -18,5 +18,7 @@
 	<br><br>
 	<a href="manageGoods-list">管理商品</a>
 	<br><br>
+	<a href="<%=contextPath %>/view/retrieveGoods.jsp">检索商品</a>
+	<br><br>
 </body>
 </html>

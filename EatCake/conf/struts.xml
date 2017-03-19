@@ -51,6 +51,11 @@
         	<result name="update">/view/updateGoods.jsp</result>
         </action>
         
+        <action name="retrieveGoods" class="retrieveGoodsAction"
+        	method="retrieve">
+        	<result name="success">/view/retrieveResult.jsp</result>
+        </action>
+        
     </package>
     
 </struts>

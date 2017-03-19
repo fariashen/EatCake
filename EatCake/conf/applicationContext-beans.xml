@@ -23,6 +23,10 @@
 		scope="prototype">
 	</bean>
 	
+	<bean id="retrieveGoodsAction" class="eatcake.action.RetrieveGoodsAction"
+		scope="prototype">
+	</bean>
+	
 	<!-- Service -->
 	<bean id="userManagerImpl" class="eatcake.service.impl.UserManagerImpl" >
 		<property name="userDao" ref="userDAOImpl"></property>
