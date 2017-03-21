@@ -41,4 +41,15 @@ public class CartDAOImpl extends BassDAOImpl implements CartDAO {
 		return (Integer) getSession().save(cart);
 	}
 
+	@Override
+	public void deleteCart(String userName) {
+
+		List<Cart> cartList = getCartByUserName(userName);
+		for(Cart cart : cartList){
+			getSession().delete(cart);
+		}
+		
+	}
+
+
 }

@@ -27,4 +27,11 @@ public interface CartDAO {
 	 * @return
 	 */
 	public Integer saveCartRecord(Cart cart);
+
+	/**
+	 * 删除购物车记录
+	 * @param userName 用户名
+	 */
+	public void deleteCart(String userName);
+
 }

@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import eatcake.dao.CartDAO;
 import eatcake.dao.GoodsDAO;
 import eatcake.dao.OrderDAO;
 import eatcake.dao.UserDAO;
@@ -25,6 +26,8 @@ public class OrderManagerImpl implements OrderManager {
 	private GoodsDAO goodsDao;
 	@Autowired
 	private UserDAO userDao;
+	@Autowired
+	private CartDAO cartDao;
 	
 	@Override
 	public Boolean checkOrder(String userName) {
@@ -58,18 +61,24 @@ public class OrderManagerImpl implements OrderManager {
 			List<CartVO> cartVoList = (List<CartVO>) session.get("cartVoList");
 			
 			CartVO firstCartVo = cartVoList.get(0);
+			//保存订单信息
 			User creator = userDao.getUserByUserName(firstCartVo.getUserName());
 			order.setCreator(creator);
 			order.setOrderStatus(0);
 			orderDao.saveOrUpdateOrder(order);
 			
 			for(CartVO cartVo : cartVoList){
+				
+				//保存订单和商品的关联关系
 				Order_Goods oG = new Order_Goods();
 				Goods goods = goodsDao.getGoodsByGoodsId(cartVo.getGoodsId());
 				oG.setGoods(goods);
 				oG.setNum(cartVo.getNum());
 				oG.setOrder(order);
 				orderDao.saveOrUpdateOrderGoods(oG);
+				
+				//清空购物车记录
+				cartDao.deleteCart(cartVo.getUserName());
 			}
 			
 		} catch (Exception e) {
