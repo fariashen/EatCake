@@ -77,7 +77,32 @@ public class OrderManagerImpl implements OrderManager {
 		}
 		return true;
 	}
-
+	
+	@Override
+	public boolean generateOrder(Integer goodsId, String userName, Orders order) {
+		
+		try {
+			
+			Goods goods = goodsDao.getGoodsByGoodsId(goodsId);
+			User creator = userDao.getUserByUserName(userName);
+			order.setCreator(creator);
+			order.setOrderStatus(0);
+			orderDao.saveOrUpdateOrder(order);
+			
+			Order_Goods oG = new Order_Goods();
+			oG.setGoods(goods);
+			oG.setNum(1);
+			oG.setOrder(order);
+			orderDao.saveOrUpdateOrderGoods(oG);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		
+		return true;
+	}
+	
 	@Override
 	public Boolean checkOut(Integer orderId) {
 
@@ -109,5 +134,7 @@ public class OrderManagerImpl implements OrderManager {
 		}
 		return false;
 	}
+
+	
 
 }

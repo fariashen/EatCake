@@ -73,6 +73,7 @@
         <action name="checkOut-*" class="checkOutAction"
         	method="{1}">
         	<result name="success">/view/success.jsp</result>
+        	<result name="fillInOrder">/view/clearingCart.jsp</result>
         </action>
     </package>
     

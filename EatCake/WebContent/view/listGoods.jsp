@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<% String contextPath = request.getContextPath(); %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -42,7 +43,7 @@
 						<td>${goodsPrice }</td>
 						<td>${goodsType }</td>
 						<td><a href="addCart?goodsId=${goodsId }&userName=${userName }">添加购物车</a></td>
-						<td><a href="?goodsId=${goodsId }">立即购买</a></td>
+						<td><a href="checkOut-Immediately?goodsId=${goodsId }">立即购买</a></td>
 					</tr>
 				</s:iterator>
 			</tbody>

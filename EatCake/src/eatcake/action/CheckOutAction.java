@@ -25,6 +25,7 @@ public class CheckOutAction extends ActionSupport implements
 	
 	private Orders model;
 	private Integer orderId;
+	private Integer goodsId;
 	
 	private ActionContext actionContext = ActionContext.getContext();
 	private Map<String, Object> session = actionContext.getSession();
@@ -34,14 +35,34 @@ public class CheckOutAction extends ActionSupport implements
 	 * @return
 	 */
 	public String clearing(){
-		if(orderManager.generateOrder(session,model)){
-			return SUCCESS;
+		if(goodsId != null && goodsId > 0){
+			
+			String userName = (String) session.get("userName");
+			if(orderManager.generateOrder(goodsId,userName,model)){
+				return SUCCESS;
+			}
+			
+		}else {
+			
+			if(orderManager.generateOrder(session,model)){
+				return SUCCESS;
+			}
+			
 		}
 		return ERROR;
 	}
 	
 	public void prepareClearing(){
 		model = new Orders();
+	}
+	
+	/**
+	 * “立即购买” 操作，转发到填写订单信息页面
+	 * @return
+	 */
+	public String Immediately(){
+		
+		return "fillInOrder";
 	}
 	
 	/**
@@ -59,6 +80,14 @@ public class CheckOutAction extends ActionSupport implements
 		this.orderId = orderId;
 	}
 
+	public void setGoodsId(Integer goodsId) {
+		this.goodsId = goodsId;
+	}
+
+	public Integer getGoodsId() {
+		return goodsId;
+	}
+	
 	public void setOrderManager(OrderManager orderManager) {
 		this.orderManager = orderManager;
 	}

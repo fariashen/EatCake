@@ -28,6 +28,15 @@ public interface OrderManager {
 	public Boolean generateOrder(Map<String, Object> session, Orders order);
 	
 	/**
+	 * “立即购买”操作
+	 * @param goodsId 商品编码
+	 * @param userName 用户名
+	 * @param orders 订单基本信息
+	 * @return
+	 */
+	public boolean generateOrder(Integer goodsId, String userName, Orders orders);
+	
+	/**
 	 * 支付订单操作
 	 * @param orderId
 	 * @return
@@ -47,4 +56,5 @@ public interface OrderManager {
 	 * @return
 	 */
 	public Boolean deleteOrder(Integer orderId);
+
 }
