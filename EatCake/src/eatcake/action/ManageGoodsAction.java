@@ -42,6 +42,14 @@ public class ManageGoodsAction extends ActionSupport implements
 	 * 展示所有商品记录
 	 * @return
 	 */
+	public String manage(){
+		
+		if(goodsManager.getAllGoodsInfo(requset)){
+			return "manage";
+		}
+		return ERROR;
+	}
+	
 	public String list(){
 		
 		if(goodsManager.getAllGoodsInfo(requset)){

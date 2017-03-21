@@ -12,13 +12,17 @@
 	<br><br>
 	<a href="<%=contextPath %>/view/login.jsp">登录</a>
 	<br><br>
+	<a href="<%=contextPath %>/view/logout.jsp">注销</a>
+	<br><br>
 	<a href="<%=contextPath %>/view/register.jsp">注册</a>
 	<br><br>
 	<a href="<%=contextPath %>/view/manageUser.jsp">管理用户</a>
 	<br><br>
-	<a href="manageGoods-list">管理商品</a>
+	<a href="manageGoods-manage">管理商品</a>
 	<br><br>
 	<a href="<%=contextPath %>/view/retrieveGoods.jsp">检索商品</a>
+	<br><br>
+	<a href="manageGoods-list">查看商品</a>
 	<br><br>
 </body>
 </html>

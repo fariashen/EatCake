@@ -1,5 +1,8 @@
 package eatcake.action;
 
+import java.util.Map;
+
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.Preparable;
@@ -23,9 +26,13 @@ public class LoginAction extends ActionSupport implements
 		this.userManager = userManager;
 	}
 	
+	private ActionContext actionContext = ActionContext.getContext();
+	private Map<String, Object> session = actionContext.getSession();
+	
 	public String login() {
 		
 		if(userManager.login(model.getUserName(),model.getPassWord())){
+			session.put("userName", model.getUserName());
 			return SUCCESS;
 		}
 		

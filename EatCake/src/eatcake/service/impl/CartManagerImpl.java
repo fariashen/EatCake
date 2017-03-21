@@ -2,6 +2,7 @@ package eatcake.service.impl;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,24 +23,29 @@ public class CartManagerImpl implements CartManager {
 	private UserDAO userDao;
 	@Autowired
 	private GoodsDAO goodsDao;
-	
+
 	@Override
-	public Boolean addGoodsToCart(Integer goodsId, String userName) {
-		
+	public Boolean addGoodsToCart(Map<String, Object> request, Integer goodsId,
+			String userName) {
+
 		try {
-			
-			Cart exist = cartDao.getCartByGoodsIdAndUserNama(goodsId, userName);
-			if(exist == null){
-				Cart cart = new Cart();
-				cart.setCreator(userDao.getUserByUserName(userName));
-				cart.setGoods(goodsDao.getGoodsByGoodsId(goodsId));
-				cart.setNum(1);
-				cartDao.saveCartRecord(cart);
+			if (userName.length()>0) {
+					request.put("logStatus", "In");
+					Cart exist = cartDao
+							.getCartByGoodsIdAndUserNama(goodsId,userName);
+					if (exist == null) {
+						Cart cart = new Cart();
+						cart.setCreator(userDao.getUserByUserName(userName));
+						cart.setGoods(goodsDao.getGoodsByGoodsId(goodsId));
+						cart.setNum(1);
+						cartDao.saveCartRecord(cart);
+					} else {
+						exist.setNum(exist.getNum() + 1);
+					}
+				
+			} else {
+				request.put("logStatus", "Out");
 			}
-			else {
-				exist.setNum(exist.getNum()+1);
-			}
-			
 		} catch (Exception e) {
 			return false;
 		}
@@ -52,15 +58,15 @@ public class CartManagerImpl implements CartManager {
 		try {
 			List<Cart> cartList = cartDao.getCartByUserName(userName);
 			List<Goods> goodsList = null;
-			if(cartList != null){
-				for(Cart cart: cartList){
+			if (cartList != null) {
+				for (Cart cart : cartList) {
 					goodsList.add(cart.getGoods());
 				}
 			}
 		} catch (Exception e) {
 			return false;
 		}
-		
+
 		return true;
 	}
 

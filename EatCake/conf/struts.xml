@@ -25,9 +25,7 @@
 		<!-- 登录操作 -->
         <action name="login-*" class="loginAction"
         	method="{1}">
-        	
         	<result name="success">/view/success.jsp</result>
-        	
         	<result name="test">/index.jsp</result>
         </action>
         
@@ -47,13 +45,21 @@
         <action name="manageGoods-*" class="manageGoodsAction"
         	method="{1}">
         	<result name="success">/view/success.jsp</result>
-        	<result name="list">/view/manageGoods.jsp</result>
+        	<result name="manage">/view/manageGoods.jsp</result>
         	<result name="update">/view/updateGoods.jsp</result>
+        	<result name="list">/view/listGoods.jsp</result>
         </action>
         
+        <!-- 根据 商品类别 搜索商品 -->
         <action name="retrieveGoods" class="retrieveGoodsAction"
         	method="retrieve">
         	<result name="success">/view/retrieveResult.jsp</result>
+        </action>
+        
+        <!-- 添加购物车操作 -->
+        <action name="addCart" class="addCartAction" 
+        	method="addCart">
+        	<result name="success">/view/addCartResult.jsp</result>
         </action>
         
     </package>
