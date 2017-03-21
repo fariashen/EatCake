@@ -42,7 +42,7 @@
 						<td>${goodsPrice }</td>
 						<td>${goodsType }</td>
 						<td><a href="addCart?goodsId=${goodsId }&userName=${userName }">添加购物车</a></td>
-						<td><a href="?goodsId=${goodsId }&userName=${userName }">立即购买</a></td>
+						<td><a href="?goodsId=${goodsId }">立即购买</a></td>
 					</tr>
 				</s:iterator>
 			</tbody>

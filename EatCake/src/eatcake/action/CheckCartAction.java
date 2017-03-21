@@ -30,13 +30,13 @@ public class CheckCartAction extends ActionSupport {
 	
 	private ActionContext actionContext = ActionContext.getContext();
 	private Map<String, Object> request = (Map<String, Object>) actionContext.get("request");
-	
+	private Map<String, Object> session = actionContext.getSession();
 	/**
 	 * 查看简要购物车记录
 	 * @return
 	 */
 	public String check(){
-		if(cartManager.checkCartRecord(request,userName)){
+		if(cartManager.checkCartRecord(session,userName)){
 			return SUCCESS;
 		}
 		return ERROR;

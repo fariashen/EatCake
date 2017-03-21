@@ -24,6 +24,17 @@ public class OrderDAOImpl extends BassDAOImpl implements OrderDAO {
 	}
 
 	@Override
+	public Boolean saveOrUpdateOrderGoods(Order_Goods orderGoods) {
+		try {
+			getSession().saveOrUpdate(orderGoods);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+
+	@Override
 	public List<Orders> getOrdersByUserName(String userName) {
 
 		String hql = "FROM Order order "
@@ -66,6 +77,7 @@ public class OrderDAOImpl extends BassDAOImpl implements OrderDAO {
 		}
 		return true;
 	}
+
 
 	
 }

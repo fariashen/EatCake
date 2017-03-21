@@ -1,5 +1,7 @@
 package eatcake.service;
 
+import java.util.Map;
+
 import eatcake.model.Orders;
 
 public interface OrderManager {
@@ -23,7 +25,7 @@ public interface OrderManager {
 	 * @param order
 	 * @return
 	 */
-	public Boolean generateOrder(Orders order);
+	public Boolean generateOrder(Map<String, Object> session, Orders order);
 	
 	/**
 	 * 支付订单操作

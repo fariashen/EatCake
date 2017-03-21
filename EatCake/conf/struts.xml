@@ -68,6 +68,12 @@
         	<result name="success">/view/checkCart.jsp</result>	
         	<result name="detail">/view/checkCartGoodsDetail.jsp</result>
         </action>
+        
+        <!-- 购物车结算，订单付款操作 -->
+        <action name="checkOut-*" class="checkOutAction"
+        	method="{1}">
+        	<result name="success">/view/success.jsp</result>
+        </action>
     </package>
     
 </struts>

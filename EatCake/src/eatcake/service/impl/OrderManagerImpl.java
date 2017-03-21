@@ -1,25 +1,30 @@
 package eatcake.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import eatcake.dao.GoodsDAO;
 import eatcake.dao.OrderDAO;
+import eatcake.dao.UserDAO;
 import eatcake.model.Goods;
 import eatcake.model.Order_Goods;
 import eatcake.model.Orders;
+import eatcake.model.User;
 import eatcake.service.OrderManager;
+import eatcake.vo.CartVO;
 
 @Service
 public class OrderManagerImpl implements OrderManager {
 
 	@Autowired
 	private OrderDAO orderDao;
-	
 	@Autowired
 	private GoodsDAO goodsDao;
+	@Autowired
+	private UserDAO userDao;
 	
 	@Override
 	public Boolean checkOrder(String userName) {
@@ -47,10 +52,26 @@ public class OrderManagerImpl implements OrderManager {
 	}
 
 	@Override
-	public Boolean generateOrder(Orders order) {
+	public Boolean generateOrder(Map<String, Object>session, Orders order) {
 
 		try {
+			List<CartVO> cartVoList = (List<CartVO>) session.get("cartVoList");
+			
+			CartVO firstCartVo = cartVoList.get(0);
+			User creator = userDao.getUserByUserName(firstCartVo.getUserName());
+			order.setCreator(creator);
+			order.setOrderStatus(0);
 			orderDao.saveOrUpdateOrder(order);
+			
+			for(CartVO cartVo : cartVoList){
+				Order_Goods oG = new Order_Goods();
+				Goods goods = goodsDao.getGoodsByGoodsId(cartVo.getGoodsId());
+				oG.setGoods(goods);
+				oG.setNum(cartVo.getNum());
+				oG.setOrder(order);
+				orderDao.saveOrUpdateOrderGoods(oG);
+			}
+			
 		} catch (Exception e) {
 			return false;
 		}

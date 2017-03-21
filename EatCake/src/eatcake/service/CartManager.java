@@ -17,6 +17,6 @@ public interface CartManager {
 	 * @param userName
 	 * @return
 	 */
-	public Boolean checkCartRecord(Map<String, Object> request, String userName);
+	public Boolean checkCartRecord(Map<String, Object> session, String userName);
 	
 }

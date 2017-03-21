@@ -56,7 +56,7 @@ public class CartManagerImpl implements CartManager {
 	}
 
 	@Override
-	public Boolean checkCartRecord(Map<String, Object> request, String userName) {
+	public Boolean checkCartRecord(Map<String, Object> session, String userName) {
 
 		if(userName.length()>0){
 			try {
@@ -76,7 +76,7 @@ public class CartManagerImpl implements CartManager {
 					
 					cartVoList.add(cartVo);
 				}
-				request.put("cartVoList", cartVoList);
+				session.put("cartVoList", cartVoList);
 			} catch (Exception e) {
 				return false;
 			}

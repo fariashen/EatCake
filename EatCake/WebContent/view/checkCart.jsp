@@ -28,7 +28,7 @@
 			</thead>
 			
 			<tbody>
-				<s:iterator value="#request.cartVoList">
+				<s:iterator value="#session.cartVoList">
 					<tr>
 						<td><a href="checkCart-detail?goodsId=${goodsId }">${goodsName }</a></td>
 						<td>${goodsPrice }</td>
@@ -37,6 +37,11 @@
 				</s:iterator>
 			</tbody>
 		</table>
+		
+		<br><br>
+		<a href="<%=contextPath%>/index.jsp">返回</a>
+		<br><br>
+		<a href="<%=contextPath%>/view/clearingCart.jsp">结算</a>
 	</s:else>
 	
 </body>
