@@ -31,6 +31,10 @@
 		scope="prototype">
 	</bean>
 	
+	<bean id="checkCartAction" class="eatcake.action.CheckCartAction" 
+		scope="prototype">
+	</bean>
+	
 	<!-- Service -->
 	<bean id="userManagerImpl" class="eatcake.service.impl.UserManagerImpl" >
 		<property name="userDao" ref="userDAOImpl"></property>

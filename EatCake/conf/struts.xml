@@ -62,6 +62,12 @@
         	<result name="success">/view/addCartResult.jsp</result>
         </action>
         
+        <!-- 查看购物车记录操作 -->
+        <action name="checkCart-*" class="checkCartAction"
+        	method="{1}">
+        	<result name="success">/view/checkCart.jsp</result>	
+        	<result name="detail">/view/checkCartGoodsDetail.jsp</result>
+        </action>
     </package>
     
 </struts>

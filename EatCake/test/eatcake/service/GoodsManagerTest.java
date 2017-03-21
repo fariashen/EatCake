@@ -35,7 +35,7 @@ public class GoodsManagerTest extends AbstractJUnit4SpringContextTests {
 	public void testSearchGoodById(){
 		Goods goods = new Goods();
 		
-		goods = goodsManager.searchGoods(111);
+		goods = goodsManager.searchGoods(1);
 		System.out.println(goods.getGoodsName());
 	}
 	

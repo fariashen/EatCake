@@ -24,5 +24,7 @@
 	<br><br>
 	<a href="manageGoods-list">查看商品</a>
 	<br><br>
+	<a href="checkCart-check?userName=${userName }">查看购物车</a>
+	<br><br>
 </body>
 </html>

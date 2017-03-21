@@ -1,5 +1,6 @@
 package eatcake.service.impl;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -12,7 +13,9 @@ import eatcake.dao.GoodsDAO;
 import eatcake.dao.UserDAO;
 import eatcake.model.Cart;
 import eatcake.model.Goods;
+import eatcake.model.User;
 import eatcake.service.CartManager;
+import eatcake.vo.CartVO;
 
 @Service
 public class CartManagerImpl implements CartManager {
@@ -53,20 +56,31 @@ public class CartManagerImpl implements CartManager {
 	}
 
 	@Override
-	public Boolean checkCartRecord(String userName) {
+	public Boolean checkCartRecord(Map<String, Object> request, String userName) {
 
-		try {
-			List<Cart> cartList = cartDao.getCartByUserName(userName);
-			List<Goods> goodsList = null;
-			if (cartList != null) {
-				for (Cart cart : cartList) {
-					goodsList.add(cart.getGoods());
+		if(userName.length()>0){
+			try {
+				List<CartVO> cartVoList = new ArrayList<CartVO>() ;
+				List<Cart> cartList = cartDao.getCartByUserName(userName);
+				for(Cart cart : cartList){
+					CartVO cartVo = new CartVO();
+					Goods goods = cart.getGoods();
+					User user = cart.getCreator();
+					
+					cartVo.setGoodsId(goods.getGoodsId());
+					cartVo.setGoodsName(goods.getGoodsName());
+					cartVo.setGoodsPrice(goods.getGoodsPrice());
+					cartVo.setNum(cart.getNum());
+					cartVo.setUserId(user.getId());
+					cartVo.setUserName(user.getUserName());
+					
+					cartVoList.add(cartVo);
 				}
+				request.put("cartVoList", cartVoList);
+			} catch (Exception e) {
+				return false;
 			}
-		} catch (Exception e) {
-			return false;
 		}
-
 		return true;
 	}
 
