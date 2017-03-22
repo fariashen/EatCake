@@ -37,15 +37,14 @@ public class CheckOutAction extends ActionSupport implements
 	public String clearing(){
 		if(goodsId != null && goodsId > 0){
 			
-			String userName = (String) session.get("userName");
-			if(orderManager.generateOrder(goodsId,userName,model)){
-				return SUCCESS;
+			if(orderManager.generateOrder(goodsId,session,model)){
+				return "checkOut";
 			}
 			
 		}else {
 			
 			if(orderManager.generateOrder(session,model)){
-				return SUCCESS;
+				return "checkOut";
 			}
 			
 		}

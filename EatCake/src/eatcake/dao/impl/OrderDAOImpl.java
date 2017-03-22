@@ -37,7 +37,7 @@ public class OrderDAOImpl extends BassDAOImpl implements OrderDAO {
 	@Override
 	public List<Orders> getOrdersByUserName(String userName) {
 
-		String hql = "FROM Order order "
+		String hql = "FROM Orders order "
 				+ "WHERE order.creator.userName = ?";
 		Query query = getSession().createQuery(hql)
 				.setString(0, userName);
@@ -48,7 +48,7 @@ public class OrderDAOImpl extends BassDAOImpl implements OrderDAO {
 	@Override
 	public Orders getOrderByOrderId(Integer orderId) {
 
-		String hql = "From Order order "
+		String hql = "From Orders order "
 				+ "WHERE order.orderId = ?";
 		Query query = getSession().createQuery(hql)
 				.setInteger(0, orderId);

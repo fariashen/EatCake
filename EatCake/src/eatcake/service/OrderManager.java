@@ -30,11 +30,11 @@ public interface OrderManager {
 	/**
 	 * “立即购买”操作
 	 * @param goodsId 商品编码
-	 * @param userName 用户名
+	 * @param session 浏览器Session 对象
 	 * @param orders 订单基本信息
 	 * @return
 	 */
-	public boolean generateOrder(Integer goodsId, String userName, Orders orders);
+	public boolean generateOrder(Integer goodsId, Map<String, Object> session, Orders orders);
 	
 	/**
 	 * 支付订单操作

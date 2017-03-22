@@ -17,12 +17,13 @@
 		<br><br>
 	</s:if>
 	
-	
-	<s:form action="checkOut-clearing" method="post">
-		<s:textfield name="address" label="address"></s:textfield>
-		<s:textfield name="phone" label="phone"></s:textfield>
-		<s:hidden name="goodsId" ></s:hidden>
-		<s:submit></s:submit>
-	</s:form>
+	<s:else>
+		<s:form action="checkOut-clearing" method="post">
+			<s:textfield name="address" label="address"></s:textfield>
+			<s:textfield name="phone" label="phone"></s:textfield>
+			<s:hidden name="goodsId" ></s:hidden>
+			<s:submit></s:submit>
+		</s:form>
+	</s:else>
 </body>
 </html>

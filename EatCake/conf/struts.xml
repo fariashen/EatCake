@@ -74,6 +74,7 @@
         	method="{1}">
         	<result name="success">/view/success.jsp</result>
         	<result name="fillInOrder">/view/clearingCart.jsp</result>
+        	<result name="checkOut">/view/checkOutOrder.jsp</result>
         </action>
     </package>
     

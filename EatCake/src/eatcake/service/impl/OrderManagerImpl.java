@@ -88,11 +88,13 @@ public class OrderManagerImpl implements OrderManager {
 	}
 	
 	@Override
-	public boolean generateOrder(Integer goodsId, String userName, Orders order) {
+	public boolean generateOrder(Integer goodsId, Map<String, Object> session, Orders order) {
 		
 		try {
 			
 			Goods goods = goodsDao.getGoodsByGoodsId(goodsId);
+			session.put("checkOutGoods", goods);
+			String userName = (String) session.get("userName");
 			User creator = userDao.getUserByUserName(userName);
 			order.setCreator(creator);
 			order.setOrderStatus(0);

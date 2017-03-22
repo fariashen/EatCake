@@ -21,7 +21,7 @@ public class GoodsManagerTest extends AbstractJUnit4SpringContextTests {
 	public void setGoodsManager(GoodsManager goodsManager) {
 		this.goodsManager = goodsManager;
 	}
-
+	
 	@Test
 	public void testChangeGoodsInfo(){
 		Goods goods = goodsManager.searchGoods(111);
