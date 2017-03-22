@@ -9,8 +9,9 @@
 </head>
 <body>
 	<h4>确认订单</h4>
-	<s:textfield name="address" label="address"></s:textfield>
-	<s:textfield name="phone" label="phone"></s:textfield>
+	<s:textfield name="address" label="address" readonly="true"></s:textfield>
+	<s:textfield name="phone" label="phone" readonly="true"></s:textfield>
+	<br>
 	
 	<table border="1" cellpadding="10" cellspacing="0">
 	

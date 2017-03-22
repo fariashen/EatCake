@@ -66,14 +66,43 @@ public class OrderManagerImpl implements OrderManager {
 	}
 
 	@Override
-	public Boolean checkOrderDetail(Integer orderId) {
+	public Boolean checkOrderDetail(Integer orderId, Map<String, Object> request) {
 
 		try {
+			Orders order = orderDao.getOrderByOrderId(orderId);
 			List<Order_Goods> oG = orderDao.getOrderGoodsByOrderId(orderId);
-			List<Goods> goodsList = null;
-			for(Order_Goods orderGoods : oG){
-				goodsList.add(orderGoods.getGoods());
+			
+			//设置Order值对象
+			OrdersVO orderVo = new OrdersVO();
+			orderVo.setAddress(order.getAddress());
+			orderVo.setOrderId(order.getOrderId());
+			orderVo.setPhone(order.getPhone());
+			if(order.getOrderStatus() == 1){
+				orderVo.setOrderStatus("已支付");
+			}else {
+				orderVo.setOrderStatus("未支付");
 			}
+			//将值对象放置在请求域中
+			request.put("orderVo", orderVo);
+			
+			//新建商品展示信息列表
+			List<Goods> goodsList = new ArrayList<Goods>();
+			for(Order_Goods orderGoods : oG){
+				Goods goods = new Goods();
+				Goods ogGoods = orderGoods.getGoods();
+				goods.setGoodsBrief(ogGoods.getGoodsBrief());
+				goods.setGoodsDetail(ogGoods.getGoodsDetail());
+				goods.setGoodsId(ogGoods.getGoodsId());
+				goods.setGoodsImgPath(ogGoods.getGoodsImgPath());
+				goods.setGoodsName(ogGoods.getGoodsName());
+				goods.setGoodsPrice(ogGoods.getGoodsPrice());
+				goods.setGoodsType(ogGoods.getGoodsType());
+				
+				goodsList.add(goods);
+			}
+			//将值对象放置在请求域中
+			request.put("orderGoodsList", goodsList);
+			
 		} catch (Exception e) {
 			return false;
 		}

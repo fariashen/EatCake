@@ -44,7 +44,7 @@ public class CheckOrderAction extends ActionSupport {
 	 */
 	public String detail(){
 		
-		if(orderManager.checkOrderDetail(orderId)){
+		if(orderManager.checkOrderDetail(orderId, request)){
 			return "detail";
 		}
 		return ERROR;

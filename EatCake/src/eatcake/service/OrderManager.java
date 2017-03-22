@@ -18,9 +18,10 @@ public interface OrderManager {
 	/**
 	 * 用户根据订单编码查看订单记录详情
 	 * @param orderId
+	 * @param request 将显示数据放置在request中
 	 * @return
 	 */
-	public Boolean checkOrderDetail(Integer orderId);
+	public Boolean checkOrderDetail(Integer orderId, Map<String, Object> request);
 	
 	/**
 	 * 生成订单记录
