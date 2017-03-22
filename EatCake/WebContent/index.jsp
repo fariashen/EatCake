@@ -26,5 +26,7 @@
 	<br><br>
 	<a href="checkCart-check?userName=${userName }">查看购物车</a>
 	<br><br>
+	<a href="checkOrder-check">查看订单</a>
+	<br><br>
 </body>
 </html>

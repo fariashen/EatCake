@@ -1,7 +1,10 @@
 package eatcake.action;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 import eatcake.model.Orders;
@@ -17,17 +20,20 @@ public class CheckOrderAction extends ActionSupport {
 	@Autowired
 	private OrderManager orderManager;
 	
-	private String userName = null;
 	private Integer orderId = null;
+	
+	private ActionContext actionContext = ActionContext.getContext();
+	private Map<String, Object> session = actionContext.getSession();
+	private Map<String, Object> request = (Map<String, Object>) actionContext.get("request");
 	
 	/**
 	 * 查看用户的所有订单记录（简要）
 	 * @return
 	 */
-	private String check(){
+	public String check(){
 		
-		if(orderManager.checkOrder(userName)){
-			return SUCCESS;
+		if(orderManager.checkOrder(session,request)){
+			return "brief";
 		}
 		return ERROR;
 	}
@@ -36,17 +42,14 @@ public class CheckOrderAction extends ActionSupport {
 	 * 查看某条订单记录的详情
 	 * @return
 	 */
-	private String detail(){
+	public String detail(){
 		
 		if(orderManager.checkOrderDetail(orderId)){
-			return SUCCESS;
+			return "detail";
 		}
 		return ERROR;
 	}
-	
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
+
 	public void setOrderId(Integer orderId) {
 		this.orderId = orderId;
 	}

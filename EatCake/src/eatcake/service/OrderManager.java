@@ -8,10 +8,12 @@ public interface OrderManager {
 
 	/**
 	 * 用户查看所有订单记录
-	 * @param userName
+	 * @param session 通过HttpSession 获取用户名
+	 * @param request 将订单记录列表放入到request中
 	 * @return
 	 */
-	public Boolean checkOrder(String userName);
+	public boolean checkOrder(Map<String, Object> session,
+			Map<String, Object> request);
 	
 	/**
 	 * 用户根据订单编码查看订单记录详情
@@ -56,5 +58,7 @@ public interface OrderManager {
 	 * @return
 	 */
 	public Boolean deleteOrder(Integer orderId);
+
+	
 
 }

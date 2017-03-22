@@ -1,5 +1,6 @@
 package eatcake.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -16,6 +17,7 @@ import eatcake.model.Orders;
 import eatcake.model.User;
 import eatcake.service.OrderManager;
 import eatcake.vo.CartVO;
+import eatcake.vo.OrdersVO;
 
 @Service
 public class OrderManagerImpl implements OrderManager {
@@ -30,10 +32,34 @@ public class OrderManagerImpl implements OrderManager {
 	private CartDAO cartDao;
 	
 	@Override
-	public Boolean checkOrder(String userName) {
+	public boolean checkOrder(Map<String, Object> session, Map<String, Object> request) {
 
-		List<Orders> orderList = orderDao.getOrdersByUserName(userName);
-		if(orderList == null){
+		try {
+			String userName = (String) session.get("userName");
+			List<Orders> orderList = orderDao.getOrdersByUserName(userName);
+			//orders的值对象列表
+			List<OrdersVO> orderVoList = new ArrayList<OrdersVO>();
+			
+			if(orderList != null){
+				//为orders的值对象列表赋值
+				for(Orders order : orderList){
+					OrdersVO ordersVo = new OrdersVO();
+					
+					ordersVo.setAddress(order.getAddress());
+					ordersVo.setOrderId(order.getOrderId());
+					ordersVo.setPhone(order.getPhone());
+					if (order.getOrderStatus() == 1) {
+						ordersVo.setOrderStatus("已支付");
+					}else {
+						ordersVo.setOrderStatus("未支付");
+					}
+					
+					orderVoList.add(ordersVo);
+				}
+			}
+			request.put("orderVoList", orderVoList);
+		} catch (Exception e) {
+			e.printStackTrace();
 			return false;
 		}
 		return true;

@@ -25,7 +25,6 @@ public class OrderManagerTest extends AbstractJUnit4SpringContextTests{
 	
 	@Test
 	public void testCheckOrder(){
-		orderManager.checkOrder("test");
 	}
 
 }

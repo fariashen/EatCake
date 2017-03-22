@@ -76,6 +76,13 @@
         	<result name="fillInOrder">/view/clearingCart.jsp</result>
         	<result name="checkOut">/view/checkOutOrder.jsp</result>
         </action>
+        
+        <!-- 查看订单操作 -->
+        <action name="checkOrder-*" class="checkOrderAction"
+        	method="{1}">
+        	<result name="brief">/view/checkOrder.jsp</result>
+        	<result name="detail">/view/orderDetail.jsp</result>
+        </action>
     </package>
     
 </struts>
