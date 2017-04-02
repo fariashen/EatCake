@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-<html>
 <head>
 
 <title>"Eat Cake" 一起</title>
