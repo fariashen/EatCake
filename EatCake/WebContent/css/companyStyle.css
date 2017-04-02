@@ -1,0 +1,392 @@
+body{
+    font: 400 15px Lato, sans-serif;
+    line-height: 1.8;
+    color: #818181;
+}
+
+.jumbotron {
+    background-color: #f4511e;
+    color: #ffffff;
+    padding: 100px 25px;
+    font-family: Montserrat, sans-serif;
+}
+
+.container-fluid {
+    padding: 60px 50px;
+}
+
+.bg-grey {
+    background-image: url("../img/background-cake.jpg");
+    background-size: cover;
+    background-position: center center;
+}
+
+.logo{
+    color: #f4511e;
+    font-size: 200px;
+}
+
+.logo-small{
+    color: #f4511e;
+    font-size: 50px;
+}
+
+.thumbnail {
+    padding:0 0 15px 0;
+    border: none;
+    border-radius: 0;
+}
+
+.thumbnail img{
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
+}
+
+.carousel-control.right, .carousel-control.left{
+    background-image: none;
+    color: #f4511e;
+}
+
+.carousel-indicators li{
+    border-color: #f4511e;
+}
+
+.carousel-indicators li.active{
+    border-color: #f4511e;
+}
+
+.item h4{
+    font-size: 19px;
+    line-height: 1.375em;
+    font-weight: 400;
+    font-style: italic;
+    margin: 70px 0;
+}
+
+.item span{
+    font-style: normal;
+}
+
+.panel{
+    border: 1px solid #f4511e;
+    border-radius: 0;
+    transition: box-shadow 0.5s;
+}
+
+.panel:hover{
+    box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+}
+
+.panel-footer .btn:hover{
+    border: 1px solid #f4511e;
+    background-color: #fff !important;
+    color: #f4511e;
+}
+
+.panel-heading{
+    color: #ffffff !important;
+    background-color: #f4511e !important;
+    padding: 25px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.panel-footer{
+    background-color: #fff !important;
+}
+
+.panel-footer h3{
+    font-size: 32px;
+}
+
+.panel-footer h4{
+    color: #aaaaaa;
+    font-size: 14px;
+}
+
+.panel-footer .btn{
+    margin: 15px 0;
+    background-color: #f4511e;
+    color: #ffffff;
+}
+
+.navbar{
+    margin-bottom: 0;
+
+    z-index: 9999;
+    border: 0;
+    font-size: 12px !important;
+    line-height: 1.42857143 !important;
+    letter-spacing: 4px;
+    border-radius: 0;
+    font-family: Montserrat, sans-serif;
+
+}
+
+.navbar li a, .navbar .navbar-brand{
+    color: #fff !important;
+}
+
+.clean-main-menu{
+    background-color: #000000;
+    background-color: transparent;
+    -webkit-transition: all .35s;
+    transition: all .35s;
+}
+
+.clean-main-menu.minified{
+    background-color: #333333;
+}
+
+.navbar-nav li a:hover, .navbar-nav li.active a{
+    color: #f4511e !important;
+    background-color: #fff !important;
+}
+
+.navbar-default .navbar-toggle{
+    border-color: transparent;
+    color: #fff !important;
+}
+
+footer .glyphicon{
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #f4511e;
+}
+
+h2{
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #303030;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+h4{
+    font-size: 19px;
+    line-height: 1.375em;
+    color: #303030;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+.slideanim{visibility: hidden;}
+.slide{
+    animation-name: slide;
+    -webkit-animation-name: slide;
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    visibility: visible;
+}
+
+.full-screen{
+    height: 100vh;
+}
+
+strong {
+    color: #f1c11a;
+    font-weight: 700;
+}
+
+#home h1{
+    font-size: 4.8rem;
+    font-weight: 700;
+}
+
+#home h3 {
+    font-size: 2rem;
+    line-height: 2.5rem;
+}
+
+#home h1, #home h3{
+    letter-spacing: 0.8rem;
+}
+
+/* home section */
+#home {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    color: #ffffff;
+}
+
+#home .home-thumb {
+    text-align: center;
+}
+
+#home .btn,#product .btn {
+    background: transparent;
+    border: 3px solid #ffffff;
+    border-radius: 0px;
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 14px 36px;
+    margin-top: 42px;
+    margin-right: 16px;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+#home .btn:hover,#product .btn:hover {
+    background: #f1c11a;
+    color: #ffffff;
+    border-color: transparent;
+}
+
+#home .btn-success,#product .btn-success {
+    background: #ffffff;
+    color: #242424;
+    border-color: transparent;
+}
+
+/**
+about Section
+ */
+
+#about{
+    background: #ffffff;
+}
+
+#about .section-title{
+    padding-bottom: 22px;
+}
+
+.section-title h1{
+    padding-bottom: 10px;
+    font-size: 50px;
+    font-weight: 700;
+    color: #333333;
+}
+
+.section-title h3{
+    font-size: 16px;
+    line-height: 1.8rem;
+    color: #333333;
+}
+
+h1,h2,h3{
+    letter-spacing: 0.3rem;
+}
+
+p{
+    font-size: 14px;
+    line-height: 28px;
+    letter-spacing: 0.8px;
+}
+
+#about,#feature,#pricing{
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+/**
+feature Section
+ */
+#feature{
+    background-color: #f1c11a;
+}
+
+#feature .glyphicon{
+    font-size: 42px;
+    padding-right: 14px;
+    color: #ffffff;
+}
+
+#feature h2{
+    color: #ffffff;
+    font-size: 30px;
+    padding-bottom: 10px;
+    font-weight: 500;
+}
+
+#feature p{
+    color: #333333;
+
+}
+#feature{
+    padding-top: 15% !important;
+}
+
+/**
+product section
+ */
+#product .product-text{
+    padding-top: 10%;
+}
+
+#product h1{
+    color: #333333;
+    font-size: 50px;
+    font-weight: 700;
+    line-height: inherit;
+}
+
+/*
+Login Model
+*/
+#loginModel .modal-header, #loginModel h4, #loginModel .close{
+    background-color: #5cb85c;
+}
+
+/*
+SignUp Model
+*/
+#signUpModel .modal-header, #signUpModel h4, #signUpModel .close{
+    background-color: #fe7875;
+}
+
+#signUpModel button{
+    background-color: #fe7875;
+    border-color: #fe7875;
+}
+/*
+Model
+*/
+.modal-header, h4, .close {
+    color:white !important;
+    text-align: center;
+    font-size: 30px;
+}
+.modal-footer {
+    background-color: #f9f9f9;
+}
+
+@keyframes slide {
+    0%{
+        opacity: 0;
+        -webkit-transform: translateY(70%);
+    }
+    100%{
+        opacity: 1;
+        -webkit-transform: translateY(0%);
+    }
+}
+@-webkit-keyframes slide {
+    0%{
+        opacity: 0;
+        -webkit-transform: translateY(70%);
+    }
+    100%{
+        opacity:1;
+        -webkit-transform: translateY(0%);
+    }
+}
+
+@media screen and (max-width: 768px){
+    .col-sm-4{
+        text-align: center;
+        margin: 25px 0;
+    }
+}
