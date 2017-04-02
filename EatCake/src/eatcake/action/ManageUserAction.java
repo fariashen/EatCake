@@ -32,6 +32,9 @@ public class ManageUserAction extends ActionSupport implements
 		return ERROR;
 	}
 	
+	public void prepareAddUser(){
+		model = new User();
+	}
 	
 	public String deleteUser(){
 		
@@ -42,9 +45,12 @@ public class ManageUserAction extends ActionSupport implements
 		return ERROR;
 	}
 	
+	public void prepareDeleteUser(){
+		model = new User();
+	}
+	
 	@Override
 	public void prepare() throws Exception {
-		model = new User();
 	}
 
 	@Override
