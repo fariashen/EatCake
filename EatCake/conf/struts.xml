@@ -45,7 +45,7 @@
         <action name="manageGoods-*" class="manageGoodsAction"
         	method="{1}">
         	<result name="success">/view/success.jsp</result>
-        	<result name="manage">/view/manageGoods.jsp</result>
+        	<result name="manage">/view/manage-magGoods.jsp</result>
         	<result name="update">/view/updateGoods.jsp</result>
         	<result name="list">/view/listGoods.jsp</result>
         </action>

@@ -46,8 +46,7 @@
 				<li><a href="<%= contextPath %>/view/manage-addUser.jsp"><i class="fa fa-flash "></i>新增会员 </a></li>
 				<li><a href="<%= contextPath %>/view/manage-deleteUser.jsp"><i class="fa fa-anchor "></i>删除会员</a></li>
 				<li><a href="<%= contextPath %>/view/manage-addGoods.jsp"><i class="fa fa-bug "></i>添加商品</a></li>
-				<li><a href="<%= contextPath %>/view/manage-updateGoods.jsp"><i class="fa fa-sign-in "></i>修改商品信息</a></li>
-				<li><a href="<%= contextPath %>/view/manage-delGoods.jsp"><i class="fa fa-square-o "></i>删除商品</a></li>
+				<li><a href="manageGoods-manage"><i class="fa fa-square-o "></i>管理商品</a></li>
 			</ul>
 
 		</div>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <% String contextPath = request.getContextPath(); %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -44,9 +45,9 @@
 				<li><a href="<%= contextPath %>/view/manage.jsp"><i
 						class="fa fa-dashboard "></i>Dashboard</a></li>
 				<li><a href="<%= contextPath %>/view/manage-addUser.jsp"><i class="fa fa-flash "></i>新增会员 </a></li>
-				<li><a class="active-menu" href="<%= contextPath %>/view/manage-deleteUser.jsp"><i class="fa fa-anchor "></i>删除会员</a></li>
+				<li><a href="<%= contextPath %>/view/manage-deleteUser.jsp"><i class="fa fa-anchor "></i>删除会员</a></li>
 				<li><a href="<%= contextPath %>/view/manage-addGoods.jsp"><i class="fa fa-bug "></i>添加商品</a></li>
-				<li><a href="manageGoods-manage"><i class="fa fa-square-o "></i>管理商品</a></li>
+				<li><a class="active-menu" href="manageGoods-manage"><i class="fa fa-square-o "></i>管理商品</a></li>
 			</ul>
 
 		</div>
@@ -58,21 +59,46 @@
 			<div id="page-inner">
 				<div class="row">
 					<div class="col-md-12">
-						<h1 class="page-head-line">删除会员</h1>
-						<form role="form" action="manageUser-deleteUser" method="post" class="page-subhead-line">
-						<div class="form-group">
-							<label for="usrname"><span
-								class="glyphicon glyphicon-user"></span> UserName</label> 
-							<input
-								type="text" class="form-control" id="usrname"
-								placeholder="Enter UserName" name="userName">
-						</div>
-						
-						<button type="submit" class="btn btn-success btn-block">
-							<span class="glyphicon glyphicon-off"></span> 确定
-						</button>
-					</form>
-						<h1 ></h1>
+						<h1 class="page-head-line">管理商品信息</h1>
+
+						<s:if
+							test="#request.goodsList == null || #request.goodsList.size() == 0">
+							没有任何商品信息
+						</s:if>
+
+						<s:else>
+							<table border="1" cellpadding="10" cellspacing="0">
+								<thead>
+									<tr>
+										<td>GoodsId</td>
+										<td>GoodsName</td>
+										<td>GoodsBrief</td>
+										<td>GoodsDetail</td>
+										<td>GoodsImgPath</td>
+										<td>GoodsPrice</td>
+										<td>GoodsType</td>
+										<td>Delete</td>
+										<td>Update</td>
+									</tr>
+								</thead>
+
+								<tbody>
+									<s:iterator value="#request.goodsList">
+										<tr>
+											<td>${goodsId }</td>
+											<td>${goodsName }</td>
+											<td>${goodsBrief }</td>
+											<td>${goodsDetail }</td>
+											<td>${goodsImgPath }</td>
+											<td>${goodsPrice }</td>
+											<td>${goodsType }</td>
+											<td><a href="manageGoods-delete?goodsId=${goodsId }">Delete</a></td>
+											<td><a href="manageGoods-toUpdate?goodsId=${goodsId }">Update</a></td>
+										</tr>
+									</s:iterator>
+								</tbody>
+							</table>
+						</s:else>
 
 					</div>
 				</div>
