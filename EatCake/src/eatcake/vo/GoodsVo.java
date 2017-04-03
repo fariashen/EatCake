@@ -1,9 +1,10 @@
-package eatcake.model;
+package eatcake.vo;
 
-import eatcake.vo.GoodsVo;
+import java.io.File;
 
-public class Goods {
+import eatcake.model.Goods;
 
+public class GoodsVo {
 	private Integer goodsId;
 	private String goodsName;
 	private String goodsType;
@@ -12,6 +13,10 @@ public class Goods {
 	private String goodsDetail;
 	private Double goodsPrice;
 	
+//	文件上传属性
+	private File img;
+	private String imgContentType;
+	private String imgFileName;
 	
 	public Integer getGoodsId() {
 		return goodsId;
@@ -55,32 +60,39 @@ public class Goods {
 	public void setGoodsPrice(Double goodsPrice) {
 		this.goodsPrice = goodsPrice;
 	}
-	
-	
-	public Goods() {
+	public File getImg() {
+		return img;
+	}
+	public void setImg(File img) {
+		this.img = img;
+	}
+	public String getImgContentType() {
+		return imgContentType;
+	}
+	public void setImgContentType(String imgContentType) {
+		this.imgContentType = imgContentType;
+	}
+	public String getImgFileName() {
+		return imgFileName;
+	}
+	public void setImgFileName(String imgName) {
+		this.imgFileName = imgName;
+	}
+	public GoodsVo() {
 		super();
 	}
 	
-//	利用值对象构造Goods Model对象
-	public Goods(GoodsVo goodsVo) {
+//	根据 Goods Model 构造值对象
+	public GoodsVo(Goods goods) {
 		super();
-		this.goodsId = goodsVo.getGoodsId();
-		this.goodsName = goodsVo.getGoodsName();
-		this.goodsType = goodsVo.getGoodsType();
-		this.goodsImgPath = goodsVo.getGoodsImgPath();
-		this.goodsBrief = goodsVo.getGoodsBrief();
-		this.goodsDetail = goodsVo.getGoodsDetail();
-		this.goodsPrice = goodsVo.getGoodsPrice();
+		this.goodsId = goods.getGoodsId();
+		this.goodsName = goods.getGoodsName();
+		this.goodsType = goods.getGoodsType();
+		this.goodsImgPath = goods.getGoodsImgPath();
+		this.goodsBrief = goods.getGoodsBrief();
+		this.goodsDetail = goods.getGoodsDetail();
+		this.goodsPrice = goods.getGoodsPrice();
 	}
-	
-	@Override
-	public String toString() {
-		return "Goods [goodsId=" + goodsId + ", goodsName=" + goodsName
-				+ ", goodsType=" + goodsType + ", goodsImgPath=" + goodsImgPath
-				+ ", goodsBrief=" + goodsBrief + ", goodsDetail=" + goodsDetail
-				+ ", goodsPrice=" + goodsPrice + "]";
-	}
-	
 	
 	
 }

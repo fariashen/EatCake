@@ -2,6 +2,9 @@ package eatcake.action;
 
 import java.util.Map;
 
+import javax.servlet.ServletContext;
+
+import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -12,16 +15,17 @@ import com.opensymphony.xwork2.Preparable;
 
 import eatcake.model.Goods;
 import eatcake.service.GoodsManager;
+import eatcake.vo.GoodsVo;
 
 public class ManageGoodsAction extends ActionSupport implements 
-	ModelDriven<Goods>,Preparable {
+	ModelDriven<GoodsVo>,Preparable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private Goods model;
+	private GoodsVo model;
 	private GoodsManager goodsManager;
 	private Integer goodsId;
 	
@@ -63,6 +67,9 @@ public class ManageGoodsAction extends ActionSupport implements
 	 * @return
 	 */
 	public String add(){
+		ServletContext servletContext = ServletActionContext.getServletContext();
+		String dir = servletContext.getRealPath("/img/" + model.getImgFileName());
+		model.setGoodsImgPath(dir);
 		
 		if(goodsManager.addGoodsRecord(model)){
 			return SUCCESS;
@@ -71,7 +78,7 @@ public class ManageGoodsAction extends ActionSupport implements
 	}
 	
 	public void prepareAdd(){
-		model = new Goods();
+		model = new GoodsVo();
 	}
 	
 	/**
@@ -96,7 +103,7 @@ public class ManageGoodsAction extends ActionSupport implements
 	
 	public void prepareToUpdate(){
 		if(goodsId != null){
-			model = goodsManager.searchGoods(goodsId);
+			model = new GoodsVo(goodsManager.searchGoods(goodsId));
 		}
 	}
 	/**
@@ -105,19 +112,19 @@ public class ManageGoodsAction extends ActionSupport implements
 	 */
 	public String update(){
 		
-		System.out.println(model.toString());
-		if(goodsManager.changeGoodsInfo(model)){
+		Goods goods = new Goods(model);
+		if(goodsManager.changeGoodsInfo(goods)){
 			return SUCCESS;
 		}
 		return ERROR;
 	}
 	
 	public void prepareUpdate(){
-		model = new Goods();
+		model = new GoodsVo();
 	}
 
 	@Override
-	public Goods getModel() {
+	public GoodsVo getModel() {
 		return model;
 	}
 

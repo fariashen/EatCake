@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import eatcake.model.Goods;
+import eatcake.vo.GoodsVo;
 
 public interface GoodsManager {
 
@@ -12,7 +13,7 @@ public interface GoodsManager {
 	 * @param goods
 	 * @return
 	 */
-	public Boolean addGoodsRecord(Goods goods);
+	public Boolean addGoodsRecord(GoodsVo goods);
 	
 	/**
 	 * 根据商品编码删除商品记录

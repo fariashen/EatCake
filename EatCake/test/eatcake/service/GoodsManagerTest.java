@@ -51,7 +51,7 @@ public class GoodsManagerTest extends AbstractJUnit4SpringContextTests {
 		goods.setGoodsPrice(31.1);
 		goods.setGoodsType("testAdd3");
 		
-		goodsManager.addGoodsRecord(goods);
+//		goodsManager.addGoodsRecord(goods);
 	}
 
 }

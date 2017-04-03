@@ -61,12 +61,13 @@
 				<div class="row">
 					<div class="col-md-12">
 						<h1 class="page-head-line">新增商品</h1>
-						<form role="form" action="manageGoods-add" method="post">
+						<form role="form" action="manageGoods-add" method="post" enctype="multipart/form-data">
 							<div class="form-group">
 								<label for="goodsId"> goodsId</label>
 									<input
 									type="text" class="form-control" id="goodsId"
 									placeholder="Enter goodsId" name="goodsId">
+									
 							</div>
 							<div class="form-group">
 								<label for="goodsName"> goodsName</label> 
@@ -89,8 +90,8 @@
 							<div class="form-group">
 								<label for="goodsImgPath"> goodsImgPath</label> 
 									<input
-									type="text" class="form-control" id="goodsImgPath"
-									placeholder="Enter goodsImgPath" name="goodsImgPath">
+									type="file" class="form-control" id="goodsImgPath"
+									placeholder="Enter goodsImgPath" name="img">
 							</div>
 							<div class="form-group">
 								<label for="goodsPrice"> goodsPrice</label> 
