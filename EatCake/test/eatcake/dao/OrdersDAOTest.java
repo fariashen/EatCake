@@ -23,6 +23,5 @@ public class OrdersDAOTest extends AbstractJUnit4SpringContextTests{
 	@Test
 	public void testGetOrderByOrderId(){
 		Orders order = orderDao.getOrderByOrderId(8);
-		System.out.println(order.getAddress());
 	}
 }

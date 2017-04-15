@@ -33,5 +33,11 @@ public interface CartDAO {
 	 * @param userName 用户名
 	 */
 	public void deleteCart(String userName);
+	
+	/**
+	 * 保存或更新购物车记录
+	 * @param cart
+	 */
+	public void saveOrUpdateRecord(Cart cart);
 
 }

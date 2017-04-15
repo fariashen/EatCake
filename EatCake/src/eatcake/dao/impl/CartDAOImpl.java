@@ -51,5 +51,11 @@ public class CartDAOImpl extends BassDAOImpl implements CartDAO {
 		
 	}
 
+	@Override
+	public void saveOrUpdateRecord(Cart cart) {
+
+		getSession().saveOrUpdate(cart);
+	}
+
 
 }

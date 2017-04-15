@@ -6,13 +6,17 @@
     
   </context-param>
   <listener>
-    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    <listener-class>
+    org.springframework.web.context.ContextLoaderListener
+    </listener-class>
   </listener>
   
   <!-- 配置 struts2 的 Filter -->
   <filter>
         <filter-name>struts2</filter-name>
-        <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+        <filter-class>
+        org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter
+        </filter-class>
     </filter>
 
     <filter-mapping>

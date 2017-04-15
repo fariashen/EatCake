@@ -44,6 +44,7 @@ public class CartManagerImpl implements CartManager {
 						cartDao.saveCartRecord(cart);
 					} else {
 						exist.setNum(exist.getNum() + 1);
+						cartDao.saveCartRecord(exist);
 					}
 				
 			} else {
