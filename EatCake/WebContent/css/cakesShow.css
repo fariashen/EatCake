@@ -1,0 +1,23 @@
+article{
+    margin-bottom: 80px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    float: left;
+    width: 25%;
+}
+
+article span{
+    font-size: 16px;
+    font-family: "Roboto", arial, sans-serif;
+    color: #999999;
+    margin-bottom: 20px;
+    display: block;
+}
+
+article h2{
+    font-family: "Playfair Display", times, serif;
+    font-size: 30px;
+    color: #000;
+    margin-bottom: 30px;
+}
