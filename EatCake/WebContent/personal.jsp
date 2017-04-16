@@ -95,15 +95,15 @@
 							<article
 							class="item  ${goodsType } animate-box">
 								<figure> 
-									<a href="single.jsp">
+									<a href="checkCart-detail?goodsId=${goodsId }">
 										<img src="${goodsImgPath }" alt="Image" class="img-responsive">
 									</a>
 								</figure> 
 								<h2 class="fh5co-article-title">
-									<a href="single.jsp">${goodsName }</a>
+									<a href="checkCart-detail?goodsId=${goodsId }">${goodsName }</a>
 								</h2>
 								<span class="fh5co-meta">
-									<a href="single.jsp">${goodsPrice }元</a>
+									<a href="checkCart-detail?goodsId=${goodsId }">${goodsPrice }元</a>
 								</span>
 								
 								<span class="fh5co-meta fh5co-date">${goodsBrief }</span> 
@@ -126,7 +126,7 @@
 
 		<section class="about" id="fbsection3">
 		<div class="block">
-			<div id="content_1" class="inner-left">
+			<div id="content_1" class="inner-noslit">
 				
 				<header>购物车</header>
 				
@@ -141,17 +141,20 @@
 						<s:else>
 							<s:iterator value="#session.cartVoList" var="cart">
 								<div class="service-detail">
-									<h6><a href="checkCart-detail?goodsId=${goodsId }">${cart.goodsName }</a></h6>
-									<p>数量：${num }</p>
+									<h6><a href="checkCart-detail?goodsId=${cart.goodsId }">${cart.goodsName }</a></h6>
+									<p>数量：${cart.num }</p>
 								</div>
 							</s:iterator>
+							<header>
+								<a href="<%=contextPath%>/view/clearingCart.jsp">结算</a>
+							</header>
 						</s:else>
 						
 					</div>
 				</div>
 
 				<div class="clear"></div>
-
+				
 			</div>
 		</div>
 		</section>
@@ -161,47 +164,32 @@
 		<section class="experience" id="fbsection4">
 		<div class="block">
 			<div class="inner-noslit">
-				<header>EXPERIENCE</header>
-				<p class="exp-title">
-					Photographer<span class="duration"><i
-						class="fa fa-calendar color"></i> 2012 - 2014</span>
-				</p>
-				<p class="exp-company">
-					<i class="fa fa-camera-retro"></i> Wet Plate INC
-				</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-					vitae dapibus dolor, et eleifend turpis. Praesent pharetra odio
-					lectus. Vivamus convallis, lacus vel adipiscing ultricies, urna
-					quam molestie nulla, sed blandit quam neque nec felis. Etiam non
-					neque eu lorem dapibus commodo. Phasellus euismod magna velit, nec
-					mattis magna suscipit eget. Duis malesuada est non hendrerit
-					tempor. Fusce accumsan ullamcorper diam, at dignissim mi elementum
-					eget. Integer sed urna eget neque suscipit feugiat. Nam congue
-					lectus vitae nunc pulvinar, at laoreet orci pellentesque. Nunc eget
-					accumsan velit. Proin odio dui, molestie sed convallis non, dictum
-					eu diam.</p>
-				<p>Sed et diam dui. Curabitur tortor nibh, laoreet sit amet
-					ipsum eu, consequat vehicula dolor. Etiam ac faucibus elit.
-					Maecenas vitae adipiscing est. Proin libero purus, dapibus at ante
-					eget, posuere tempus dui. Fusce porttitor nulla eget pretium
-					ultrices. Suspendisse eget faucibus dui, fermentum posuere felis.
-					Etiam tempus blandit dui sit amet molestie. Duis viverra risus
-					mattis, pellentesque lacus nec, aliquam justo.</p>
-				</p>
-				<p class="exp-title second-exp">
-					Alchymist<span class="duration"><i
-						class="fa fa-calendar color"></i> 2010 - 2012</span>
-				</p>
-				<p class="exp-company">
-					<i class="fa fa-flask"></i> Collodion Labs
-				</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-					pretium pellentesque semper. Vivamus pharetra condimentum sapien,
-					et ultricies purus luctus semper. Lorem ipsum dolor sit amet,
-					consectetur adipiscing elit. Morbi varius diam metus, sed auctor
-					lorem vestibulum a. Vestibulum accumsan euismod scelerisque.
-					Suspendisse potenti. Duis ac elit molestie tortor suscipit
-					convallis. Pellentesque sed suscipit arcu.</p>
+				<header>订单信息</header>
+				
+				<s:if test="#request.orderVoList == null || #request.orderVoList.size() < 0">
+					<p class="exp-company">
+					<i class="fa fa-camera-retro"></i> 暂无订单信息！
+					</p>
+				</s:if>
+				
+				<s:else>
+					<s:iterator value="#request.orderVoList" var="order">
+						<p class="exp-title">
+							<a href="checkOrder-detail?orderId=${order.orderId }">
+							订单编号：${order.orderId }</a>
+							<span class="duration">
+								<i class="fa fa-calendar color"></i> 
+								支付状态：${order.orderStatus }
+							</span>
+						</p>
+						<p class="exp-company">
+							<i class="fa fa-camera-retro"></i> 
+							收货地址：${order.address }
+						</p>
+						<p>联系电话：${order.phone }</p>
+					</s:iterator>
+				</s:else>
+				
 			</div>
 		</div>
 		</section>

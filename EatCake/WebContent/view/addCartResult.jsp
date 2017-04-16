@@ -18,9 +18,6 @@
 	
 	<s:else>
 		<h4>添加购物车成功！</h4>
-		<br><br>
-		<a href="<%=contextPath %>/index.jsp">返回</a>
-		<br><br>
 	</s:else>
 </body>
 </html>

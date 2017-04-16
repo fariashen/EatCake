@@ -2,6 +2,7 @@ package eatcake.action;
 
 import java.util.Map;
 
+import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.ActionContext;
@@ -25,7 +26,7 @@ public class CheckOrderAction extends ActionSupport {
 	private ActionContext actionContext = ActionContext.getContext();
 	private Map<String, Object> session = actionContext.getSession();
 	private Map<String, Object> request = (Map<String, Object>) actionContext.get("request");
-	
+
 	/**
 	 * 查看用户的所有订单记录（简要）
 	 * @return
