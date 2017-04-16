@@ -10,6 +10,6 @@
 <body>
 	操作成功！
 	<br><br>
-	<a href="<%=contextPath%>/index.jsp">返回</a>
+	<a href="login-returnPage">返回</a>
 </body>
 </html>

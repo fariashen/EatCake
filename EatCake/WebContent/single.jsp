@@ -48,7 +48,7 @@
 		<div class="row">
 			<div class="col-lg-12 col-md-12 text-center">
 				<h1 id="fh5co-logo">
-					<a href="#">一起 <sup>返回</sup></a>
+					<a href="login-returnPage">一起 <sup>返回</sup></a>
 				</h1>
 			</div>
 

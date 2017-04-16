@@ -54,6 +54,16 @@ public class LoginAction extends ActionSupport implements
 		model = new User();
 	}
 	
+	public String returnPage(){
+		
+		String userName = (String) session.get("userName");
+		//进入personal.jsp前获取所有商品信息，获取用户购物车信息，获取用户订单信息
+		goodsManager.getAllGoodsInfo(request);
+		cartManager.checkCartRecord(session, userName);
+		orderManager.checkOrder(session, request);
+		return SUCCESS;
+	}
+	
 	@Override
 	public void prepare() throws Exception {
 		// TODO Auto-generated method stub
