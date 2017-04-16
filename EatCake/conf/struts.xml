@@ -25,7 +25,7 @@
 		<!-- 登录操作 -->
         <action name="login-*" class="loginAction"
         	method="{1}">
-        	<result name="success">/view/success.jsp</result>
+        	<result name="success">/personal.jsp</result>
         	<result name="test">/index.jsp</result>
         </action>
         

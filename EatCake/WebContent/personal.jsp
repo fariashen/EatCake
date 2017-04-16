@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%
+	String contextPath = request.getContextPath();
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -38,10 +42,12 @@
 
 		<h1>一起</h1>
 		<span>纯粹 &amp; 幸福</span>
-		<nav id="cbp-fbscroller1" class="cbp-fbscroller"> <a
-			href="#fbsection1" class="cbp-fbcurrent">HOME</a> <a
-			href="#fbsection2">CAKES</a> <a class="experience" href="#fbsection3">CART</a>
-		<a href="#fbsection4">ORDERS</a> </nav>
+		<nav id="cbp-fbscroller1" class="cbp-fbscroller"> 
+			<a href="#fbsection1" class="cbp-fbcurrent">HOME</a> 
+			<a href="#fbsection2">CAKES</a> 
+			<a class="experience" href="#fbsection3">CART</a>
+			<a href="#fbsection4">ORDERS</a> 
+		</nav>
 
 		<a class="tablet-close icon-menu"><i class="fa fa-align-justify"></i></a>
 	</div>
@@ -68,19 +74,16 @@
 				<div id="puge-portfolio-filter"
 					class="puge-portfolio-filter-btn-group">
 					<ul>
-						<li><a href="#" class="selected" data-filter="*">ALL</a>
-						<!--
-                         -->
-							<a href="#" data-filter=".web-design">Web Design</a>
-						<!--
-                         -->
-							<a href="#" data-filter=".web-development">Web Development</a>
-						<!--
-                         -->
-							<a href="#" data-filter=".app-development">App Development</a>
-						<!--
-                         -->
-							<a href="#" data-filter=".photography">Photography</a></li>
+						<li>
+							<a href="#" class="selected" data-filter="*">ALL</a>
+							<!-- -->
+                          	<a href="#" data-filter=".testType">testType</a>
+                          	<!-- --> 
+                          	<a href="#" data-filter=".testRetrieve">testRetrieve</a> 
+                          	<!----> 
+                          	<a href="#" data-filter=".testAdd">testAdd</a> 
+							<!----> 
+							<a href="#" data-filter=".testUpdate">testUpdate</a></li>
 					</ul>
 				</div>
 				<!-- Filter Button End -->
@@ -88,50 +91,28 @@
 				<div class="container-fluid">
 					<div class="puge-portfolio-items row fh5co-post-entry ">
 
-						<article
-							class="item  web-design app-development col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
-						<figure> <a href="single.html"><img
-							src="images/pic_1.jpg" alt="Image" class="img-responsive"></a>
-						</figure> <span class="fh5co-meta"><a href="single.html">Food
-								&amp; Drink</a></span>
-						<h2 class="fh5co-article-title">
-							<a href="single.html">We Eat and Drink All Night</a>
-						</h2>
-						<span class="fh5co-meta fh5co-date">March 6th, 2016</span> </article>
-						<article
-							class="item  web-development app-development col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
-						<figure> <a href="single.html"><img
-							src="images/pic_2.jpg" alt="Image" class="img-responsive"></a>
-						</figure> <span class="fh5co-meta"><a href="single.html">Food
-								&amp; Drink</a></span>
-						<h2 class="fh5co-article-title">
-							<a href="single.html">Beef Steak at Guatian Restaurant</a>
-						</h2>
-						<span class="fh5co-meta fh5co-date">March 6th, 2016</span> </article>
-						<div class="clearfix visible-xs-block"></div>
-
-						<article
-							class="item  web-design col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
-						<figure> <a href="single.html"><img
-							src="images/pic_3.jpg" alt="Image" class="img-responsive"></a>
-						</figure> <span class="fh5co-meta"><a href="single.html">Travel</a>,
-							<a href="single.html">Style</a></span>
-						<h2 class="fh5co-article-title">
-							<a href="single.html">An Overlooking River at the East Cost</a>
-						</h2>
-						<span class="fh5co-meta fh5co-date">March 6th, 2016</span> </article>
-						<article
-							class="item  web-design web-development photography col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
-						<figure> <a href="single.html"><img
-							src="images/pic_4.jpg" alt="Image" class="img-responsive"></a>
-						</figure> <span class="fh5co-meta"><a href="single.html">Travel</a>,
-							<a href="single.html">Style</a></span>
-						<h2 class="fh5co-article-title">
-							<a href="single.html">A Wildlife In The Mountain of India</a>
-						</h2>
-						<span class="fh5co-meta fh5co-date">March 6th, 2016</span> </article>
+						<s:iterator value="#request.goodsList">
+							<article
+							class="item  ${goodsType } animate-box">
+								<figure> 
+									<a href="single.jsp">
+										<img src="${goodsImgPath }" alt="Image" class="img-responsive">
+									</a>
+								</figure> 
+								<h2 class="fh5co-article-title">
+									<a href="single.jsp">${goodsName }</a>
+								</h2>
+								<span class="fh5co-meta">
+									<a href="single.jsp">${goodsPrice }元</a>
+								</span>
+								
+								<span class="fh5co-meta fh5co-date">${goodsBrief }</span> 
+							</article>
+						</s:iterator>
+						
 						<div
-							class="clearfix visible-lg-block visible-md-block visible-sm-block visible-xs-block"></div>
+							class="clearfix visible-lg-block visible-md-block visible-sm-block visible-xs-block">
+						</div>
 
 					</div>
 				</div>
@@ -146,107 +127,31 @@
 		<section class="about" id="fbsection3">
 		<div class="block">
 			<div id="content_1" class="inner-left">
-				<header>ABOUT</header>
-				<ul class="about-data">
-					<li><span class="value">John Moe</span>
-						<div class="clear"></div></li>
-					<li><span class="value">Manhattan , NY</span>
-						<div class="clear"></div></li>
-					<li><span class="value">johnmoe@collodion.com</span>
-						<div class="clear"></div></li>
-					<li><span class="value">+123 (21) 1234-5678</span>
-						<div class="clear"></div></li>
-				</ul>
-
-				<p class="about-desc">
-					<i class="fa fa-quote-left"></i>&nbsp; Lorem ipsum dolor sit amet,
-					consectetur adipiscing elit. Etiam nec nulla sagittis, scelerisque
-					mi vitae, congue turpis. Lorem ipsum dolor sit amet, consectetur
-					adipiscing elit. Etiam nec nulla sagittis, scelerisque mi vitae,
-					congue turpis.&nbsp;&nbsp;<i class="fa fa-quote-right"></i>
-				</p>
-
-				<!-- ABOUT SERVICES 1 -->
-
-				<header>WHAT I DO</header>
+				
+				<header>购物车</header>
+				
 				<div class="services pack-service">
 					<div class="service">
-						<div class="service-icon">
-							<i class="fa fa-camera-retro"></i>
-						</div>
-						<div class="service-detail">
-							<h6>Photography</h6>
-							<p>Fusce quis interdum ipsum.Suspendi suscipit vehicula
-								sapienid mattis. Lorem ipsum amet consectetur.</p>
-						</div>
+						<s:if 
+							test="#session.cartVoList == null || #session.cartVoList.size()==0">
+							<div class="service-detail">
+									<h6>购物车为空</h6>
+							</div>
+						</s:if>
+						<s:else>
+							<s:iterator value="#session.cartVoList" var="cart">
+								<div class="service-detail">
+									<h6><a href="checkCart-detail?goodsId=${goodsId }">${cart.goodsName }</a></h6>
+									<p>数量：${num }</p>
+								</div>
+							</s:iterator>
+						</s:else>
+						
 					</div>
 				</div>
-				<div class="services pack-service">
-					<div class="service">
-						<div class="service-icon">
-							<i class="fa fa-coffee"></i>
-						</div>
-						<div class="service-detail">
-							<h6>Drink Coffe</h6>
-							<p>Fusce quis interdum ipsum.Suspendi suscipit vehicula
-								sapienid mattis. Lorem ipsum amet consectetur.</p>
-						</div>
-					</div>
-				</div>
-				<div class="services pack-service">
-					<div class="service">
-						<div class="service-icon">
-							<i class="fa fa-print"></i>
-						</div>
-						<div class="service-detail">
-							<h6>Print</h6>
-							<p>Fusce quis interdum ipsum.Suspendi suscipit vehicula
-								sapienid mattis. Lorem ipsum amet consectetur.</p>
-						</div>
-					</div>
-				</div>
+
 				<div class="clear"></div>
 
-
-				<!-- ABOUT SERVICES 2 -->
-
-				<header>SERVICES</header>
-				<div class="services pack-service2">
-					<div class="service2">
-						<div class="service-icon2">
-							<i class="fa fa-flask"></i>
-						</div>
-						<div class="service-detail2">
-							<h6>Chemical Mixing</h6>
-							<p>Fusce quis interdum ipsum.Suspendi suscipit vehicula
-								sapienid mattis. Lorem ipsum amet consectetur.</p>
-						</div>
-					</div>
-				</div>
-				<div class="services pack-service2">
-					<div class="service2">
-						<div class="service-icon2">
-							<i class="fa fa-globe"></i>
-						</div>
-						<div class="service-detail2">
-							<h6>World Wide</h6>
-							<p>Fusce quis interdum ipsum.Suspendi suscipit vehicula
-								sapienid mattis. Lorem ipsum amet consectetur.</p>
-						</div>
-					</div>
-				</div>
-				<div class="services pack-service2">
-					<div class="service2">
-						<div class="service-icon2">
-							<i class="fa fa-briefcase"></i>
-						</div>
-						<div class="service-detail2">
-							<h6>On Location</h6>
-							<p>Fusce quis interdum ipsum.Suspendi suscipit vehicula
-								sapienid mattis. Lorem ipsum amet consectetur.</p>
-						</div>
-					</div>
-				</div>
 			</div>
 		</div>
 		</section>

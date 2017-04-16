@@ -58,9 +58,12 @@
 						</h3>
 						<a href="#about"
 							class="btn btn-lg btn-default smoothScroll wow fadeInUp"
-							data-wow-delay="0.8s">一起，认识</a> <a href="#loginModel"
-							data-toggle="modal" class="btn btn-lg btn-success wow fadeInUp"
-							data-wow-delay="1.0s">马上登录</a>
+							data-wow-delay="0.8s">一起，认识</a> 
+							<a href="#loginModel"
+								data-toggle="modal" 
+								class="btn btn-lg btn-success wow fadeInUp"
+								data-wow-delay="1.0s">马上登录
+							</a>
 					</div>
 				</div>
 
@@ -152,8 +155,12 @@
 				<h1>
 					点击按钮，<br> 选择属于您的甜蜜
 				</h1>
-				<a href="#" class="btn btn-lg btn-success smoothScroll wow fadeInUp"
-					data-wow-delay="0.8s">所有产品</a>
+				<a href="#loginModel"
+					data-toggle="modal" 
+					class="btn btn-lg btn-success smoothScroll wow fadeInUp"
+					data-wow-delay="0.5s">
+					马上登录，查看更多
+				</a>
 			</div>
 		</div>
 	</section>

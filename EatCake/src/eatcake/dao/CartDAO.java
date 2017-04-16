@@ -30,9 +30,10 @@ public interface CartDAO {
 
 	/**
 	 * 删除购物车记录
-	 * @param userName 用户名
+	 * @param goodsId
+	 * @param userName
 	 */
-	public void deleteCart(String userName);
+	public void deleteCart(Integer goodsId,String userName);
 	
 	/**
 	 * 保存或更新购物车记录

@@ -15,6 +15,7 @@ import eatcake.model.Goods;
 import eatcake.model.Order_Goods;
 import eatcake.model.Orders;
 import eatcake.model.User;
+import eatcake.service.CartManager;
 import eatcake.service.OrderManager;
 import eatcake.vo.CartVO;
 import eatcake.vo.OrdersVO;
@@ -30,6 +31,8 @@ public class OrderManagerImpl implements OrderManager {
 	private UserDAO userDao;
 	@Autowired
 	private CartDAO cartDao;
+	@Autowired
+	private CartManager cartManager;
 	
 	@Override
 	public boolean checkOrder(Map<String, Object> session, Map<String, Object> request) {
@@ -132,9 +135,12 @@ public class OrderManagerImpl implements OrderManager {
 				oG.setOrder(order);
 				orderDao.saveOrUpdateOrderGoods(oG);
 				
-				//清空购物车记录
-				cartDao.deleteCart(cartVo.getUserName());
+				//清空对应的购物车记录
+				cartDao.deleteCart(cartVo.getGoodsId(),cartVo.getUserName());
 			}
+			
+			//更新session中的购物车记录
+			cartManager.checkCartRecord(session, creator.getUserName());
 			
 		} catch (Exception e) {
 			return false;
