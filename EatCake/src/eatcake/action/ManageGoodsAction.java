@@ -69,10 +69,7 @@ public class ManageGoodsAction extends ActionSupport implements
 	public String add(){
 		ServletContext servletContext = ServletActionContext.getServletContext();
 		String dir = servletContext.getRealPath("/img/" + model.getImgFileName());
-		int lastIndex = dir.lastIndexOf("\\");
-		lastIndex -= 3;
-		
-		model.setGoodsImgPath(dir.substring(lastIndex).replace("\\", "/"));
+		model.setGoodsImgPath(dir);
 		
 		if(goodsManager.addGoodsRecord(model)){
 			return SUCCESS;

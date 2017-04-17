@@ -69,8 +69,9 @@
 			<article
 				class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
 			<figure class="animate-box"> 
-			<img src="${goods.goodsImgPath }"
-				alt="Image" class="img-responsive"> 
+			<img src="imgShow?path=${goods.goodsImgPath }"
+				alt="Image" class="img-responsive"
+				style="margin: 0 auto"> 
 			</figure> 
 			<h2 class="fh5co-article-title animate-box">
 				${goods.goodsName }

@@ -83,6 +83,11 @@
         	<result name="brief">/view/checkOrder.jsp</result>
         	<result name="detail">/view/orderDetail.jsp</result>
         </action>
+        
+        <!-- 显示服务器图片 -->
+        <action name="imgShow" class="imgShowAction"
+        	method="show">
+        </action>
     </package>
     
 </struts>

@@ -96,7 +96,7 @@
 							class="item  ${goodsType } animate-box">
 								<figure> 
 									<a href="checkCart-detail?goodsId=${goodsId }">
-										<img src="${goodsImgPath }" alt="Image" class="img-responsive">
+										<img src="imgShow?path=${goodsImgPath }" alt="Image" class="img-responsive">
 									</a>
 								</figure> 
 								<h2 class="fh5co-article-title">
@@ -146,7 +146,7 @@
 								</div>
 							</s:iterator>
 							<header>
-								<a href="<%=contextPath%>/view/clearingCart.jsp">结算</a>
+								<a target="_blank" href="<%=contextPath%>/view/clearingCart.jsp">结算</a>
 							</header>
 						</s:else>
 						
@@ -175,7 +175,7 @@
 				<s:else>
 					<s:iterator value="#request.orderVoList" var="order">
 						<p class="exp-title">
-							<a href="checkOrder-detail?orderId=${order.orderId }">
+							<a target="_blank" href="checkOrder-detail?orderId=${order.orderId }">
 							订单编号：${order.orderId }</a>
 							<span class="duration">
 								<i class="fa fa-calendar color"></i> 
