@@ -75,15 +75,15 @@
 					class="puge-portfolio-filter-btn-group">
 					<ul>
 						<li>
-							<a href="#" class="selected" data-filter="*">ALL</a>
+							<a href="#" class="selected" data-filter="*">所有</a>
 							<!-- -->
-                          	<a href="#" data-filter=".testType">testType</a>
+                          	<a href="#" data-filter=".巧克力">巧克力</a>
                           	<!-- --> 
-                          	<a href="#" data-filter=".testRetrieve">testRetrieve</a> 
+                          	<a href="#" data-filter=".芝士">芝士</a> 
                           	<!----> 
-                          	<a href="#" data-filter=".testAdd">testAdd</a> 
+                          	<a href="#" data-filter=".抹茶">抹茶</a> 
 							<!----> 
-							<a href="#" data-filter=".testUpdate">testUpdate</a></li>
+							<a href="#" data-filter=".水果">水果</a></li>
 					</ul>
 				</div>
 				<!-- Filter Button End -->

@@ -67,18 +67,18 @@
 						</s:if>
 
 						<s:else>
-							<table border="1" cellpadding="10" cellspacing="0">
+							<table border="1" cellpadding="10" cellspacing="0" style="width:100%">
 								<thead>
 									<tr>
-										<td>GoodsId</td>
-										<td>GoodsName</td>
-										<td>GoodsBrief</td>
-										<td>GoodsDetail</td>
-										<td>GoodsImgPath</td>
-										<td>GoodsPrice</td>
-										<td>GoodsType</td>
-										<td>Delete</td>
-										<td>Update</td>
+										<th style="width:50px;">GoodsId</th>
+										<th style="width:100px;">GoodsName</th>
+										<th>GoodsBrief</th>
+										<th>GoodsDetail</th>
+										<th style="width:200px;">GoodsImgPath</th>
+										<th>GoodsPrice</th>
+										<th>GoodsType</th>
+										<th>Delete</th>
+										<th>Update</th>
 									</tr>
 								</thead>
 
@@ -89,7 +89,7 @@
 											<td>${goodsName }</td>
 											<td>${goodsBrief }</td>
 											<td>${goodsDetail }</td>
-											<td>${goodsImgPath }</td>
+											<td><p style="width:200px;word-break:break-all;">${goodsImgPath }</p></td>
 											<td>${goodsPrice }</td>
 											<td>${goodsType }</td>
 											<td><a href="manageGoods-delete?goodsId=${goodsId }">Delete</a></td>

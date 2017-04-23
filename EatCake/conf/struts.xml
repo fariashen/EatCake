@@ -32,19 +32,19 @@
         <!-- 注册操作 -->
         <action name="register" class="registerAction"
         	method="register">
-        		<result name="success">/view/success.jsp</result>
+        		<result name="success">/index.jsp</result>
         </action>
         
         <!-- 管理用户操作 -->
         <action name="manageUser-*" class="manageUserAction"
         	method="{1}">
-        	<result name="success">/view/success.jsp</result>
+        	<result name="success">/view/manage-success.jsp</result>
         </action>
         
         <!-- 管理商品操作 -->
         <action name="manageGoods-*" class="manageGoodsAction"
         	method="{1}">
-        	<result name="success">/view/success.jsp</result>
+        	<result name="success">/view/manage-success.jsp</result>
         	<result name="manage">/view/manage-magGoods.jsp</result>
         	<result name="update">/view/updateGoods.jsp</result>
         	<result name="list">/view/listGoods.jsp</result>

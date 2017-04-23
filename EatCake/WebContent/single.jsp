@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+	String contextPath = request.getContextPath();
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -30,13 +33,13 @@
 	href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic|Roboto:400,300,700'
 	rel='stylesheet' type='text/css'>
 <!-- Animate -->
-<link rel="stylesheet" href="cakeDetail/css/animate.css">
+<link rel="stylesheet" href="<%=contextPath %>/cakeDetail/css/animate.css">
 <!-- Icomoon -->
-<link rel="stylesheet" href="cakeDetail/css/icomoon.css">
+<link rel="stylesheet" href="<%=contextPath %>/cakeDetail/css/icomoon.css">
 <!-- Bootstrap  -->
-<link rel="stylesheet" href="cakeDetail/css/bootstrap.css">
+<link rel="stylesheet" href="<%=contextPath %>/cakeDetail/css/bootstrap.css">
 
-<link rel="stylesheet" href="cakeDetail/css/style.css">
+<link rel="stylesheet" href="<%=contextPath %>/cakeDetail/css/style.css">
 
 </head>
 <body>
@@ -85,7 +88,7 @@
 				class="col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-left content-article">
 				<div class="row">
 					
-					<div class="col-lg-4 animate-box">
+					<div class="col-lg-12 animate-box">
 						<div class="fh5co-highlight right">
 							<h4>详细介绍</h4>
 							<p>${goods.goodsDetail }</p>
@@ -99,9 +102,9 @@
 	</div>
 
 	<!-- jQuery -->
-	<script src="js/jquery.min.js"></script>
+	<script src="<%=contextPath %>/js/jquery.min.js"></script>
 	<!-- Bootstrap -->
-	<script src="js/bootstrap.min.js"></script>
+	<script src="<%=contextPath %>/js/bootstrap.min.js"></script>
 
 </body>
 </html>

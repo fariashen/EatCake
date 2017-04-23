@@ -117,7 +117,7 @@ public class OrderManagerImpl implements OrderManager {
 
 		try {
 			List<CartVO> cartVoList = (List<CartVO>) session.get("cartVoList");
-			
+			session.put("clearingCart", cartVoList);
 			CartVO firstCartVo = cartVoList.get(0);
 			//保存订单信息
 			User creator = userDao.getUserByUserName(firstCartVo.getUserName());

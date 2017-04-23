@@ -24,8 +24,8 @@
 		</thead>
 		
 		<tbody>
-			<s:if test="#session.cartVoList != null && #session.cartVoList.size() > 0">
-				<s:iterator value="#session.cartVoList">
+			<s:if test="#session.clearingCart != null && #session.clearingCart.size() > 0">
+				<s:iterator value="#session.clearingCart">
 					<tr>
 						<td><a href="checkCart-detail?goodsId=${goodsId }">${goodsName }</a></td>
 						<td>${goodsPrice }</td>
